@@ -1,156 +1,156 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
-const pillars = [
+const levels = [
     {
         number: "01",
         title: "Aprenda",
         description:
-            "Domine os fundamentos que realmente importam e desenvolva uma base sólida para evoluir com confiança.",
+            "Construa uma base sólida, domine os fundamentos e transforme conhecimento em confiança.",
     },
     {
         number: "02",
         title: "Construa",
         description:
-            "Transforme conhecimento em prática através de projetos que desafiam você a pensar, criar e resolver problemas reais.",
+            "Tire suas ideias do papel e transforme conhecimento em projetos reais que demonstram o que você sabe fazer.",
     },
     {
         number: "03",
         title: "Evolua",
         description:
-            "Continue avançando, refine suas habilidades e construa a versão profissional que você quer se tornar.",
+            "Enfrente desafios cada vez maiores, aprenda com seus erros e desenvolva a mentalidade de quem nunca para de crescer.",
+    },
+    {
+        number: "04",
+        title: "Transforme",
+        description:
+            "Converta sua evolução em oportunidades e construa o caminho para o próximo nível da sua carreira.",
     },
 ];
 
 export function NextLevel() {
+    const sectionRef = useRef<HTMLElement>(null);
+
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end end"],
+    });
+
+    const progressHeight = useTransform(
+        scrollYProgress,
+        [0, 1],
+        ["0%", "100%"],
+    );
+
+    const backgroundY = useTransform(
+        scrollYProgress,
+        [0, 1],
+        ["0%", "20%"],
+    );
+
     return (<section
+        ref={sectionRef}
         id="next-level"
-        className="relative overflow-hidden bg-[var(--surface)]"
+        className="relative min-h-[300vh] overflow-hidden bg-[var(--background)]"
     >
-        {/* Ambient background */} <div
+        {/* Background */}
+        <motion.div
             aria-hidden="true"
+            style={{
+                y: backgroundY,
+            }}
             className="pointer-events-none absolute inset-0"
-        > <div className="absolute left-1/2 top-0 h-px w-full max-w-[1440px] -translate-x-1/2 bg-white/10" />
+        > <div className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent)]/5 blur-[160px]" />
 
-            ```
-            <div className="absolute -right-40 top-1/4 h-[500px] w-[500px] rounded-full bg-[var(--accent)]/5 blur-[140px]" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:100px_100px]" />
+        </motion.div>
 
-            <div className="absolute -left-40 bottom-0 h-[400px] w-[400px] rounded-full bg-white/[0.02] blur-[120px]" />
-        </div>
+        {/* Sticky storytelling container */}
+        <div className="sticky top-0 flex min-h-screen items-center">
+            <div className="mx-auto w-full max-w-[1440px] px-6 py-24 md:px-10 lg:px-16">
+                <div className="grid gap-16 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+                    {/* Left column */}
+                    <div className="flex flex-col justify-between">
+                        <div>
+                            <div className="mb-8 flex items-center gap-3">
+                                <span className="h-px w-10 bg-[var(--accent)]" />
 
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 py-32 md:px-10 md:py-40 lg:px-16 lg:py-48">
-            {/* Section header */}
-            <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{
-                        duration: 0.8,
-                        ease: [0.22, 1, 0.36, 1],
-                    }}
-                >
-                    <div className="flex items-center gap-3">
-                        <span className="h-px w-10 bg-[var(--accent)]" />
+                                <span className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--muted)]">
+                                    O próximo nível
+                                </span>
+                            </div>
 
-                        <span className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--muted)]">
-                            O próximo nível
-                        </span>
+                            <h2 className="max-w-lg font-[family-name:var(--font-space-grotesk)] text-6xl font-bold uppercase leading-[0.82] tracking-[-0.07em] md:text-8xl lg:text-[clamp(5rem,8vw,9rem)]">
+                                Não
+                                <br />
+                                pare
+                                <br />
+                                aqui.
+                            </h2>
+                        </div>
+
+                        {/* Progress indicator */}
+                        <div className="mt-12 hidden lg:flex lg:items-center lg:gap-5">
+                            <div className="relative h-32 w-px overflow-hidden bg-white/10">
+                                <motion.div
+                                    style={{
+                                        height: progressHeight,
+                                    }}
+                                    className="absolute left-0 top-0 w-full bg-[var(--accent)]"
+                                />
+                            </div>
+
+                            <div>
+                                <span className="block text-[10px] uppercase tracking-[0.3em] text-[var(--muted)]">
+                                    Continue avançando
+                                </span>
+
+                                <span className="mt-2 block font-[family-name:var(--font-space-grotesk)] text-sm uppercase tracking-[0.15em] text-[var(--foreground)]">
+                                    Seu próximo nível
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{
-                        duration: 1,
-                        delay: 0.1,
-                        ease: [0.22, 1, 0.36, 1],
-                    }}
-                >
-                    <h2 className="max-w-5xl font-[family-name:var(--font-space-grotesk)] text-[clamp(3.5rem,8vw,8rem)] font-bold uppercase leading-[0.85] tracking-[-0.07em]">
-                        Não basta
-                        <br />
-                        <span className="text-[var(--accent)]">aprender.</span>
-                    </h2>
+                    {/* Right column */}
+                    <div className="flex flex-col justify-center">
+                        {levels.map((level, index) => (
+                            <motion.div
+                                key={level.number}
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{
+                                    once: true,
+                                    amount: 0.4,
+                                }}
+                                transition={{
+                                    duration: 0.7,
+                                    delay: index * 0.08,
+                                    ease: [0.22, 1, 0.36, 1],
+                                }}
+                                className="group grid gap-5 border-t border-white/10 py-8 md:grid-cols-[80px_1fr] md:gap-8 md:py-10"
+                            >
+                                <span className="font-[family-name:var(--font-space-grotesk)] text-sm font-medium text-[var(--accent)]">
+                                    {level.number}
+                                </span>
 
-                    <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
-                        O verdadeiro próximo nível acontece quando você transforma
-                        conhecimento em experiência, ideias em projetos e desafios em
-                        evolução.
-                    </p>
-                </motion.div>
+                                <div>
+                                    <h3 className="font-[family-name:var(--font-space-grotesk)] text-5xl font-bold uppercase leading-none tracking-[-0.05em] transition-transform duration-500 group-hover:translate-x-3 group-hover:text-[var(--accent)] md:text-7xl lg:text-8xl">
+                                        {level.title}
+                                    </h3>
+
+                                    <p className="mt-5 max-w-xl text-sm leading-relaxed text-[var(--muted)] md:text-base">
+                                        {level.description}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
             </div>
-
-            {/* Pillars */}
-            <div className="mt-32 border-t border-white/10">
-                {pillars.map((pillar, index) => (
-                    <motion.article
-                        key={pillar.number}
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
-                        transition={{
-                            duration: 0.8,
-                            delay: index * 0.1,
-                            ease: [0.22, 1, 0.36, 1],
-                        }}
-                        className="group grid gap-8 border-b border-white/10 py-10 md:grid-cols-[100px_1fr_auto] md:items-center md:gap-12 md:py-14"
-                    >
-                        <span className="font-[family-name:var(--font-space-grotesk)] text-sm text-[var(--muted)]">
-                            {pillar.number}
-                        </span>
-
-                        <div className="grid gap-4 md:grid-cols-2 md:items-center">
-                            <h3 className="font-[family-name:var(--font-space-grotesk)] text-4xl font-bold uppercase tracking-[-0.05em] transition-colors duration-300 group-hover:text-[var(--accent)] md:text-6xl">
-                                {pillar.title}
-                            </h3>
-
-                            <p className="max-w-md text-sm leading-relaxed text-[var(--muted)] md:text-base">
-                                {pillar.description}
-                            </p>
-                        </div>
-
-                        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 transition-all duration-500 group-hover:border-[var(--accent)] group-hover:bg-[var(--accent)] group-hover:text-black">
-                            <ArrowUpRight
-                                size={20}
-                                strokeWidth={1.5}
-                                className="transition-transform duration-500 group-hover:rotate-45"
-                            />
-                        </div>
-                    </motion.article>
-                ))}
-            </div>
-
-            {/* Closing statement */}
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{
-                    duration: 0.8,
-                    delay: 0.2,
-                }}
-                className="mt-32 flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
-            >
-                <p className="max-w-3xl font-[family-name:var(--font-space-grotesk)] text-3xl font-medium leading-tight tracking-[-0.04em] md:text-5xl">
-                    O conhecimento abre a porta.
-                    <br />
-                    <span className="text-[var(--muted)]">
-                        O que você constrói define até onde pode chegar.
-                    </span>
-                </p>
-
-                <span className="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">
-                    01 — 03
-                </span>
-            </motion.div>
         </div>
     </section>
-
-
     );
 }

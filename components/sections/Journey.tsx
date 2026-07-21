@@ -5,27 +5,27 @@ import { motion } from "motion/react";
 const steps = [
     {
         number: "01",
-        title: "Fundamentos",
+        title: "Aprenda",
         description:
-            "Tudo começa com uma base sólida. Entenda os conceitos, desenvolva seu raciocínio e aprenda a enxergar problemas como um desenvolvedor.",
+            "Construa uma base sólida e desenvolva o conhecimento necessário para entender como a tecnologia realmente funciona.",
     },
     {
         number: "02",
-        title: "Projetos",
+        title: "Construa",
         description:
-            "Conhecimento ganha valor quando vira prática. Crie projetos, experimente novas ideias e transforme teoria em algo real.",
+            "Transforme conhecimento em prática criando projetos, resolvendo problemas e enfrentando desafios reais.",
     },
     {
         number: "03",
-        title: "Desafios",
+        title: "Evolua",
         description:
-            "É quando as coisas ficam difíceis que você realmente evolui. Encare problemas, erre, corrija e descubra novas formas de construir.",
+            "Aprenda com seus erros, refine suas habilidades e continue avançando todos os dias.",
     },
     {
         number: "04",
-        title: "Próximo nível",
+        title: "Transforme",
         description:
-            "A evolução não termina em um projeto. Cada desafio superado prepara você para o próximo passo da sua jornada.",
+            "Use tudo o que você construiu para transformar conhecimento em oportunidades e novas possibilidades.",
     },
 ];
 
@@ -33,171 +33,94 @@ export function Journey() {
     return (<section
         id="journey"
         className="relative overflow-hidden bg-[var(--background)]"
-    >
-        {/* Background details */} <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0"
-        > <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-white/[0.04]" />
-
-            ```
-            <div className="absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[var(--accent)]/[0.03] blur-[140px]" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-[1440px] px-6 py-32 md:px-10 md:py-40 lg:px-16 lg:py-48">
+    > <div className="relative mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32 lg:px-16 lg:py-40">
             {/* Header */}
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{
-                        duration: 0.8,
-                        ease: [0.22, 1, 0.36, 1],
-                    }}
-                >
-                    <div className="flex items-center gap-3">
-                        <span className="h-px w-10 bg-[var(--accent)]" />
-
-                        <span className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--muted)]">
-                            A jornada
-                        </span>
-                    </div>
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{
-                        duration: 1,
-                        delay: 0.1,
-                        ease: [0.22, 1, 0.36, 1],
-                    }}
-                >
-                    <h2 className="font-[family-name:var(--font-space-grotesk)] text-[clamp(3rem,7vw,7rem)] font-bold uppercase leading-[0.85] tracking-[-0.07em]">
-                        Evoluir é uma
-                        <br />
-                        <span className="text-[var(--accent)]">jornada.</span>
-                    </h2>
-
-                    <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
-                        Não existe atalho para se tornar um grande desenvolvedor.
-                        Existe consistência, curiosidade e a disposição para continuar
-                        avançando.
-                    </p>
-                </motion.div>
-            </div>
-
-            {/* Journey timeline */}
-            <div className="relative mt-32 md:mt-40">
-                {/* Progress line */}
-                <div
-                    aria-hidden="true"
-                    className="absolute bottom-0 left-[23px] top-0 w-px bg-white/10 md:left-[50%] md:-translate-x-1/2"
-                />
-
-                <motion.div
-                    aria-hidden="true"
-                    initial={{ height: 0 }}
-                    whileInView={{ height: "100%" }}
-                    viewport={{ once: true, amount: 0.1 }}
-                    transition={{
-                        duration: 2,
-                        ease: "easeInOut",
-                    }}
-                    className="absolute left-[23px] top-0 w-px bg-[var(--accent)] md:left-[50%] md:-translate-x-1/2"
-                />
-
-                <div className="space-y-20 md:space-y-0">
-                    {steps.map((step, index) => (
-                        <motion.article
-                            key={step.number}
-                            initial={{
-                                opacity: 0,
-                                y: 50,
-                            }}
-                            whileInView={{
-                                opacity: 1,
-                                y: 0,
-                            }}
-                            viewport={{
-                                once: true,
-                                amount: 0.3,
-                            }}
-                            transition={{
-                                duration: 0.8,
-                                delay: index * 0.15,
-                                ease: [0.22, 1, 0.36, 1],
-                            }}
-                            className={`relative grid md:min-h-[320px] md:grid-cols-2 ${index % 2 === 0 ? "" : "md:flex-row-reverse"
-                                }`}
-                        >
-                            {/* Content */}
-                            <div
-                                className={`pl-16 md:flex md:items-center md:pl-0 ${index % 2 === 0
-                                        ? "md:pr-24"
-                                        : "md:col-start-2 md:pl-24"
-                                    }`}
-                            >
-                                <div>
-                                    <span className="font-[family-name:var(--font-space-grotesk)] text-sm font-medium text-[var(--accent)]">
-                                        {step.number}
-                                    </span>
-
-                                    <h3 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-4xl font-bold uppercase tracking-[-0.05em] md:text-6xl">
-                                        {step.title}
-                                    </h3>
-
-                                    <p className="mt-5 max-w-md text-sm leading-relaxed text-[var(--muted)] md:text-base">
-                                        {step.description}
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Timeline marker */}
-                            <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
-                                <motion.div
-                                    initial={{ scale: 0 }}
-                                    whileInView={{ scale: 1 }}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{
-                                        duration: 0.5,
-                                        delay: index * 0.15 + 0.2,
-                                        ease: [0.22, 1, 0.36, 1],
-                                    }}
-                                    className="h-3 w-3 rounded-full bg-[var(--accent)] shadow-[0_0_0_8px_var(--background),0_0_20px_var(--accent)]"
-                                />
-                            </div>
-                        </motion.article>
-                    ))}
-                </div>
-            </div>
-
-            {/* Closing statement */}
             <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{
+                    once: true,
+                    amount: 0.3,
+                }}
                 transition={{
                     duration: 0.8,
+                    ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-32 border-t border-white/10 pt-10 md:mt-40 md:flex md:items-center md:justify-between"
-            >
-                <p className="max-w-2xl font-[family-name:var(--font-space-grotesk)] text-2xl font-medium leading-tight tracking-[-0.03em] md:text-4xl">
-                    Cada linha de código é um passo.
-                    <br />
-                    <span className="text-[var(--muted)]">
-                        Continue escrevendo a sua história.
-                    </span>
-                </p>
+                className="max-w-4xl"
+            > <div className="mb-8 flex items-center gap-3"> <span className="h-px w-10 bg-[var(--accent)]" />
 
-                <span className="mt-8 block text-xs uppercase tracking-[0.3em] text-[var(--muted)] md:mt-0">
-                    Keep moving forward.
-                </span>
+                    <span className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--muted)]">
+                        Sua jornada
+                    </span>
+                </div>
+
+                <h2 className="font-[family-name:var(--font-space-grotesk)] text-5xl font-bold uppercase leading-[0.85] tracking-[-0.06em] md:text-7xl lg:text-9xl">
+                    O próximo nível
+                    <br />
+                    <span className="text-[var(--accent)]">é construído.</span>
+                </h2>
+
+                <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
+                    Não existe um único caminho para evoluir. Existe o próximo passo.
+                    E cada passo que você dá transforma quem você é e o que você é
+                    capaz de construir.
+                </p>
+            </motion.div>
+
+            {/* Journey steps */}
+            <div className="mt-24 border-t border-white/10 md:mt-32">
+                {steps.map((step, index) => (
+                    <motion.div
+                        key={step.number}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{
+                            once: true,
+                            amount: 0.25,
+                        }}
+                        transition={{
+                            duration: 0.8,
+                            delay: index * 0.1,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="group grid gap-8 border-b border-white/10 py-10 md:grid-cols-[100px_1fr_1fr] md:items-start md:py-14 lg:grid-cols-[140px_1fr_1fr]"
+                    >
+                        <span className="font-[family-name:var(--font-space-grotesk)] text-sm font-medium text-[var(--accent)]">
+                            {step.number}
+                        </span>
+
+                        <h3 className="font-[family-name:var(--font-space-grotesk)] text-5xl font-bold uppercase leading-none tracking-[-0.06em] transition-transform duration-500 group-hover:translate-x-3 group-hover:text-[var(--accent)] md:text-6xl lg:text-7xl">
+                            {step.title}
+                        </h3>
+
+                        <p className="max-w-lg text-sm leading-relaxed text-[var(--muted)] md:text-base">
+                            {step.description}
+                        </p>
+                    </motion.div>
+                ))}
+            </div>
+
+            {/* Final statement */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.96 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{
+                    once: true,
+                    amount: 0.4,
+                }}
+                transition={{
+                    duration: 1,
+                    ease: [0.22, 1, 0.36, 1],
+                }}
+                className="flex justify-center py-24 md:py-32"
+            >
+                <p className="max-w-5xl text-center font-[family-name:var(--font-space-grotesk)] text-4xl font-bold uppercase leading-[0.9] tracking-[-0.06em] md:text-6xl lg:text-8xl">
+                    A sua evolução
+                    <br />
+                    <span className="text-[var(--accent)]">começa agora.</span>
+                </p>
             </motion.div>
         </div>
     </section>
-
-
     );
 }

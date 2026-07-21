@@ -6,115 +6,74 @@ import { motion } from "motion/react";
 export function FinalCTA() {
     return (<section
         id="final-cta"
-        className="relative overflow-hidden bg-[var(--surface)]"
+        className="relative overflow-hidden bg-[var(--accent)] text-black"
     >
-        {/* Background */} <div
+        {/* Decorative typography */} <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0"
-        > <div className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent)]/[0.06] blur-[160px]" />
+            className="pointer-events-none absolute -right-10 top-1/2 hidden -translate-y-1/2 select-none font-[family-name:var(--font-space-grotesk)] text-[30rem] font-bold leading-none tracking-[-0.12em] text-black/[0.04] lg:block"
+        >
+            → </div>
 
-            ```
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:100px_100px]" />
-        </div>
-
-        <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-[1440px] flex-col justify-between px-6 py-24 md:px-10 md:py-32 lg:px-16 lg:py-40">
-            {/* Top label */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                    duration: 0.8,
-                }}
-                className="flex items-center gap-3"
-            >
-                <span className="h-px w-10 bg-[var(--accent)]" />
-
-                <span className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--muted)]">
-                    Agora é com você
-                </span>
-            </motion.div>
-
-            {/* Main content */}
-            <div className="my-24">
-                <motion.h2
+        <div className="relative mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32 lg:px-16 lg:py-40">
+            <div className="grid gap-16 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
+                {/* Main content */}
+                <motion.div
                     initial={{ opacity: 0, y: 60 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{
+                        once: true,
+                        amount: 0.3,
+                    }}
                     transition={{
-                        duration: 1,
+                        duration: 0.9,
                         ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="max-w-6xl font-[family-name:var(--font-space-grotesk)] text-[clamp(4rem,11vw,11rem)] font-bold uppercase leading-[0.8] tracking-[-0.08em]"
                 >
-                    Seu próximo
-                    <br />
-                    <span className="text-[var(--accent)]">nível começa.</span>
-                    <br />
-                    Agora.
-                </motion.h2>
+                    <span className="text-xs font-bold uppercase tracking-[0.3em] text-black/60">
+                        O próximo passo é seu
+                    </span>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 30 }}
+                    <h2 className="mt-8 max-w-5xl font-[family-name:var(--font-space-grotesk)] text-6xl font-bold uppercase leading-[0.8] tracking-[-0.08em] md:text-8xl lg:text-[10rem]">
+                        Pronto para
+                        <br />
+                        o próximo
+                        <br />
+                        nível?
+                    </h2>
+                </motion.div>
+
+                {/* CTA */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{
+                        once: true,
+                        amount: 0.3,
+                    }}
                     transition={{
                         duration: 0.8,
                         delay: 0.2,
+                        ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="mt-10 max-w-xl text-base leading-relaxed text-[var(--muted)] md:text-lg"
                 >
-                    O primeiro passo é decidir que você está pronto para ir além.
-                    Continue aprendendo, continue construindo e nunca pare de evoluir.
-                </motion.p>
+                    <p className="max-w-md text-base leading-relaxed text-black/70 md:text-lg">
+                        O conhecimento abre portas. A prática cria oportunidades. A
+                        decisão de começar está nas suas mãos.
+                    </p>
 
-                <motion.a
-                    href="#hero"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                        duration: 0.8,
-                        delay: 0.35,
-                    }}
-                    whileHover={{
-                        scale: 1.03,
-                    }}
-                    whileTap={{
-                        scale: 0.98,
-                    }}
-                    className="group mt-10 inline-flex items-center gap-5 rounded-full bg-[var(--accent)] px-7 py-4 text-sm font-semibold uppercase tracking-wider text-black transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(200,255,0,0.2)]"
-                >
-                    Começar agora
+                    <a
+                        href="#contact"
+                        className="group mt-8 inline-flex items-center gap-5 rounded-full bg-black px-7 py-4 text-sm font-semibold uppercase tracking-wider text-white transition-transform duration-300 hover:scale-105"
+                    >
+                        Quero começar
 
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white transition-transform duration-500 group-hover:rotate-45">
-                        <ArrowUpRight size={16} />
-                    </span>
-                </motion.a>
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--accent)] text-black transition-transform duration-300 group-hover:rotate-45">
+                            <ArrowUpRight size={16} />
+                        </span>
+                    </a>
+                </motion.div>
             </div>
-
-            {/* Bottom statement */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                    duration: 1,
-                    delay: 0.3,
-                }}
-                className="flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between"
-            >
-                <span className="text-xs uppercase tracking-[0.3em] text-white/30">
-                    DevClub / Next Level
-                </span>
-
-                <span className="text-xs uppercase tracking-[0.3em] text-white/30">
-                    Build. Learn. Evolve.
-                </span>
-            </motion.div>
         </div>
     </section>
-
-
     );
 }

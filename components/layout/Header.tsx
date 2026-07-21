@@ -10,8 +10,16 @@ const navigation = [
     href: "#hero",
   },
   {
+    label: "O desafio",
+    href: "#challenge",
+  },
+  {
     label: "Próximo nível",
     href: "#next-level",
+  },
+  {
+    label: "Sobre",
+    href: "#about",
   },
   {
     label: "Jornada",
