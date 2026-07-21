@@ -12,9 +12,11 @@
 
 Este projeto foi desenvolvido como parte do processo seletivo para a vaga de **Programador(a) Full Stack do DevClub**.
 
-O desafio consiste em criar uma página institucional que apresente o universo do DevClub de uma forma diferente de uma landing page tradicional.
+O desafio consiste em criar uma experiência institucional que apresente o universo do DevClub de uma forma diferente de uma landing page tradicional.
 
-A proposta deste projeto é transformar a navegação em uma experiência interativa, explorando storytelling visual, animações, microinterações e uma identidade visual inspirada no universo da tecnologia.
+A proposta deste projeto é transformar a navegação em uma experiência interativa, explorando **storytelling visual, animações, microinterações, tipografia editorial e uma identidade visual inspirada no universo da tecnologia**.
+
+O objetivo é fazer com que o usuário não apenas percorra uma página, mas sinta que está avançando por uma jornada de evolução.
 
 ---
 
@@ -27,7 +29,7 @@ A experiência foi construída em torno do conceito:
 > **Você não está apenas aprendendo a programar.
 > Você está construindo o seu próximo nível.**
 
-A jornada do usuário é representada por diferentes etapas:
+A narrativa da experiência é representada por diferentes etapas:
 
 ```text
 Curiosidade
@@ -40,12 +42,10 @@ Construção
     ↓
 Evolução
     ↓
-Carreira
-    ↓
-NEXT LEVEL
+Próximo nível
 ```
 
-A intenção é fazer com que o usuário não apenas percorra uma página, mas sinta que está avançando por uma jornada.
+A intenção é transformar a navegação em uma jornada visual e interativa, conectando aprendizado, prática e evolução.
 
 ---
 
@@ -60,7 +60,74 @@ O projeto foi desenvolvido priorizando os principais critérios de avaliação d
 * Performance
 * Acessibilidade
 
-Os dois primeiros critérios representam a maior parte da avaliação do concurso e, por isso, a experiência visual e as interações são prioridades fundamentais durante o desenvolvimento.
+A experiência visual e as interações são prioridades fundamentais do projeto, buscando criar uma apresentação marcante e tecnicamente bem estruturada.
+
+---
+
+## Experiência atual
+
+A experiência principal atualmente é composta por:
+
+### Hero
+
+Uma abertura imersiva com:
+
+* Tipografia editorial de grande escala
+* Animações de entrada
+* Background em grid
+* Glow visual
+* Movimento baseado na posição do mouse
+* CTA magnético
+* Indicador de scroll
+
+### Next Level
+
+Uma seção narrativa que apresenta a evolução do usuário através dos conceitos:
+
+```text
+Aprenda
+   ↓
+Construa
+   ↓
+Evolua
+```
+
+### Journey
+
+Uma jornada visual estruturada em etapas:
+
+```text
+01 — Fundamentos
+02 — Projetos
+03 — Desafios
+04 — Próximo nível
+```
+
+A seção utiliza animações de revelação durante o scroll e uma timeline visual para representar progressão.
+
+### Final CTA
+
+Uma chamada final construída para reforçar o conceito central da experiência:
+
+> **Seu próximo nível começa agora.**
+
+### Footer
+
+Rodapé com:
+
+* Identidade DevClub
+* Navegação interna
+* Links para as principais seções
+* Informações de copyright
+
+### Navegação
+
+O Header possui um menu fullscreen animado com navegação para:
+
+* Início
+* Próximo nível
+* Jornada
+* Começar
 
 ---
 
@@ -79,63 +146,63 @@ Os dois primeiros critérios representam a maior parte da avaliação do concurs
 
 ### Design System
 
-* [X] Identidade visual
-* [X] Paleta de cores
-* [X] Sistema tipográfico
-* [X] Espaçamento e layout global
-* [X] Scrollbar personalizada
-* [X] Estilo de seleção de texto
-* [X] Fundamentos responsivos
+* [x] Identidade visual
+* [x] Paleta de cores
+* [x] Sistema tipográfico
+* [x] Espaçamento e layout global
+* [x] Scrollbar personalizada
+* [x] Estilo de seleção de texto
+* [x] Fundamentos responsivos
 
 ### Experiência Principal
 
 * [ ] Preloader
-* [X] Header interativo
-* [X] Hero imersivo
-* [ ] Storytelling baseado em scroll
+* [x] Header interativo
+* [x] Hero imersivo
+* [ ] Storytelling avançado baseado em scroll
 * [ ] Smooth scrolling
-* [ ] Cursor personalizado / interações com ponteiro
-* [ ] Interações magnéticas
+* [ ] Cursor personalizado / interações avançadas com ponteiro
+* [x] Interações magnéticas
 
 ### Seções de Conteúdo
 
 * [ ] O Desafio
 * [ ] Sobre o DevClub
-* [ ] Jornada de Aprendizado
+* [x] Jornada de Aprendizado
 * [ ] Formações
 * [ ] Histórias de Alunos
 * [ ] Empresas
 * [ ] Tutores
-* [ ] Next Level
-* [ ] CTA Final
-* [ ] Footer
+* [x] Next Level
+* [x] CTA Final
+* [x] Footer
 
 ### Animações e Microinterações
 
-* [X] Animações de entrada
-* [ ] Animações de revelação durante o scroll
-* [ ] Animações de texto
-* [X] Interações de hover
-* [ ] Botões magnéticos
+* [x] Animações de entrada
+* [x] Animações de revelação durante o scroll
+* [ ] Animações avançadas de texto
+* [x] Interações de hover
+* [x] Botões magnéticos
 * [ ] Transições de imagens
-* [ ] Transições entre seções
+* [ ] Transições avançadas entre seções
 * [ ] Cards interativos
 
 ### Qualidade
 
-* [ ] Responsividade mobile
-* [ ] Responsividade tablet
+* [ ] Revisão de responsividade mobile
+* [ ] Revisão de responsividade tablet
 * [ ] Otimização desktop
 * [ ] Revisão de acessibilidade
 * [ ] Otimização de performance
-* [ ] Metadados SEO
+* [x] Metadados básicos de SEO
 * [ ] Metadados Open Graph
 * [ ] Análise Lighthouse
 * [ ] Testes cross-browser
 
 ### Deploy
 
-* [ ] Build de produção
+* [x] Build de produção validado
 * [ ] Configuração do VPS
 * [ ] Configuração do Nginx
 * [ ] Certificado SSL
@@ -154,9 +221,8 @@ Os dois primeiros critérios representam a maior parte da avaliação do concurs
 * [React](https://react.dev/)
 * TypeScript
 * Tailwind CSS
-* Motion
-* Lenis
-* Lucide React
+* [Motion](https://motion.dev/)
+* [Lucide React](https://lucide.dev/)
 
 ---
 
@@ -164,7 +230,7 @@ Os dois primeiros critérios representam a maior parte da avaliação do concurs
 
 A aplicação utiliza uma arquitetura baseada em componentes, buscando separar responsabilidades e facilitar a manutenção e evolução do projeto.
 
-A estrutura planejada será organizada em:
+A estrutura atual está organizada em:
 
 ```text
 app/
@@ -172,11 +238,8 @@ components/
   layout/
   sections/
   ui/
-data/
-docs/
-lib/
 public/
-types/
+docs/
 ```
 
 A arquitetura prioriza:
@@ -193,14 +256,15 @@ A arquitetura prioriza:
 
 ## Experiência Visual
 
-A experiência visual será construída com foco em:
+A experiência visual foi construída com foco em:
 
 * Dark Tech
 * Cinematic Design
 * Editorial Typography
 * Interactive Experiences
-* Scroll-driven Animations
+* Scroll Reveal Animations
 * Microinteractions
+* Motion Design
 
 A proposta é criar uma experiência que se aproxime mais de uma narrativa digital interativa do que de uma landing page institucional tradicional.
 
@@ -222,9 +286,22 @@ O documento apresenta os principais conceitos visuais e narrativos utilizados co
 
 🚧 **Em desenvolvimento — Concurso DevClub**
 
-O projeto está em desenvolvimento ativo e será continuamente refinado durante o período do concurso.
+A experiência principal já está estruturada e conta com:
 
-> O roadmap representa o planejamento atual e poderá evoluir conforme o desenvolvimento do projeto.
+* Hero imersivo
+* Design system
+* Header interativo
+* Navegação fullscreen
+* Seção Next Level
+* Jornada de aprendizado
+* Animações de entrada
+* Animações de scroll reveal
+* Interações magnéticas
+* CTA final
+* Footer
+* Build de produção validado
+
+As próximas etapas estão concentradas em **refinamento visual, responsividade, acessibilidade, performance, QA e publicação em produção**.
 
 ---
 
@@ -268,6 +345,12 @@ npm run dev
 http://localhost:3000
 ```
 
+### Execute o build de produção
+
+```bash
+npm run build
+```
+
 ---
 
 ## Deploy
@@ -278,7 +361,7 @@ A aplicação será publicada em:
 https://devclub.lucianoferreiradev.com
 ```
 
-O deploy será realizado em infraestrutura própria utilizando:
+O deploy será realizado utilizando:
 
 * Hostinger VPS
 * Linux
@@ -301,9 +384,10 @@ docs: improve project README
 feat: establish design system
 feat: create immersive hero experience
 feat: add interactive header
-feat: add scroll storytelling experience
-feat: add formations and student stories
-feat: add mentors and companies section
+feat: add next level experience
+feat: add learning journey
+feat: add final call to action
+feat: add footer
 feat: enhance motion and microinteractions
 perf: optimize animations and images
 fix: improve responsive layout
@@ -331,9 +415,11 @@ Desenvolvedor Full Stack com foco em .NET, C#, ASP.NET Core, APIs REST, SQL Serv
 
 This project was developed as part of the application process for the **DevClub Full Stack Developer Contest**.
 
-The challenge is to create an institutional page that presents the DevClub ecosystem through an experience that goes beyond a traditional landing page.
+The challenge is to create an institutional experience that presents the DevClub ecosystem through an approach that goes beyond a traditional landing page.
 
-The project aims to transform navigation into an interactive experience through visual storytelling, animations, microinteractions, and a visual identity inspired by the technology ecosystem.
+The project aims to transform navigation into an interactive experience through **visual storytelling, animations, microinteractions, editorial typography, and a technology-inspired visual identity**.
+
+The goal is to make users feel that they are progressing through a journey rather than simply scrolling through a traditional landing page.
 
 ---
 
@@ -346,7 +432,7 @@ The experience is built around the concept:
 > **You are not just learning to code.
 > You are building your next level.**
 
-The user's journey is represented through different stages:
+The narrative is represented through different stages:
 
 ```text
 Curiosity
@@ -359,12 +445,10 @@ Building
     ↓
 Evolution
     ↓
-Career
-    ↓
-NEXT LEVEL
+Next Level
 ```
 
-The goal is to make the user feel that they are progressing through a journey rather than simply scrolling through a traditional landing page.
+The goal is to transform navigation into a visual and interactive journey connecting learning, practice, and personal growth.
 
 ---
 
@@ -379,7 +463,74 @@ The project prioritizes the main evaluation criteria of the challenge:
 * Performance
 * Accessibility
 
-The first two criteria represent the largest portion of the contest evaluation, making visual experience and interactions fundamental priorities throughout development.
+Visual experience and interactions are fundamental priorities throughout the development process.
+
+---
+
+## Current Experience
+
+The current experience is composed of:
+
+### Hero
+
+An immersive opening experience featuring:
+
+* Large-scale editorial typography
+* Entrance animations
+* Grid background
+* Visual glow
+* Mouse-based movement
+* Magnetic CTA
+* Scroll indicator
+
+### Next Level
+
+A narrative section presenting the user's evolution through:
+
+```text
+Learn
+   ↓
+Build
+   ↓
+Evolve
+```
+
+### Journey
+
+A visual journey structured around four stages:
+
+```text
+01 — Foundations
+02 — Projects
+03 — Challenges
+04 — Next Level
+```
+
+The section uses scroll reveal animations and a visual timeline to represent progression.
+
+### Final CTA
+
+A final call to action reinforcing the central concept:
+
+> **Your next level starts now.**
+
+### Footer
+
+A footer containing:
+
+* DevClub identity
+* Internal navigation
+* Main section links
+* Copyright information
+
+### Navigation
+
+The Header includes an animated fullscreen menu with navigation to:
+
+* Home
+* Next Level
+* Journey
+* Get Started
 
 ---
 
@@ -398,63 +549,63 @@ The first two criteria represent the largest portion of the contest evaluation, 
 
 ### Design System
 
-* [X] Visual identity
-* [X] Color palette
-* [X] Typography system
-* [X] Global spacing and layout
-* [X] Custom scrollbar
-* [X] Selection styling
-* [X] Responsive foundations
+* [x] Visual identity
+* [x] Color palette
+* [x] Typography system
+* [x] Global spacing and layout
+* [x] Custom scrollbar
+* [x] Selection styling
+* [x] Responsive foundations
 
 ### Core Experience
 
 * [ ] Preloader
-* [X] Interactive header
-* [X] Immersive hero section
-* [ ] Scroll-based storytelling
+* [x] Interactive header
+* [x] Immersive hero section
+* [ ] Advanced scroll-based storytelling
 * [ ] Smooth scrolling
-* [ ] Custom cursor / pointer interactions
-* [ ] Magnetic interactions
+* [ ] Custom cursor / advanced pointer interactions
+* [x] Magnetic interactions
 
 ### Content Sections
 
 * [ ] The Challenge
 * [ ] About DevClub
-* [ ] Learning Journey
+* [x] Learning Journey
 * [ ] Formations
 * [ ] Student Stories
 * [ ] Companies
 * [ ] Mentors
-* [ ] Next Level
-* [ ] Final CTA
-* [ ] Footer
+* [x] Next Level
+* [x] Final CTA
+* [x] Footer
 
 ### Motion & Microinteractions
 
-* [X] Page entrance animations
-* [ ] Scroll reveal animations
-* [ ] Text animations
-* [X] Hover interactions
-* [ ] Magnetic buttons
+* [x] Page entrance animations
+* [x] Scroll reveal animations
+* [ ] Advanced text animations
+* [x] Hover interactions
+* [x] Magnetic buttons
 * [ ] Image transitions
-* [ ] Section transitions
+* [ ] Advanced section transitions
 * [ ] Interactive cards
 
 ### Quality
 
-* [ ] Mobile responsiveness
-* [ ] Tablet responsiveness
+* [ ] Mobile responsiveness review
+* [ ] Tablet responsiveness review
 * [ ] Desktop optimization
 * [ ] Accessibility review
 * [ ] Performance optimization
-* [ ] SEO metadata
+* [x] Basic SEO metadata
 * [ ] Open Graph metadata
 * [ ] Lighthouse review
 * [ ] Cross-browser testing
 
 ### Deployment
 
-* [ ] Production build
+* [x] Production build validated
 * [ ] VPS configuration
 * [ ] Nginx configuration
 * [ ] SSL certificate
@@ -473,9 +624,8 @@ The first two criteria represent the largest portion of the contest evaluation, 
 * [React](https://react.dev/)
 * TypeScript
 * Tailwind CSS
-* Motion
-* Lenis
-* Lucide React
+* [Motion](https://motion.dev/)
+* [Lucide React](https://lucide.dev/)
 
 ---
 
@@ -483,7 +633,7 @@ The first two criteria represent the largest portion of the contest evaluation, 
 
 The application uses a component-based architecture focused on separation of concerns, maintainability, and scalability.
 
-The planned structure will be organized into:
+The current structure is organized into:
 
 ```text
 app/
@@ -491,11 +641,8 @@ components/
   layout/
   sections/
   ui/
-data/
-docs/
-lib/
 public/
-types/
+docs/
 ```
 
 The architecture prioritizes:
@@ -518,8 +665,9 @@ The visual experience is designed around:
 * Cinematic Design
 * Editorial Typography
 * Interactive Experiences
-* Scroll-driven Animations
+* Scroll Reveal Animations
 * Microinteractions
+* Motion Design
 
 The goal is to create an experience closer to an interactive digital narrative than a traditional institutional landing page.
 
@@ -541,9 +689,22 @@ The document presents the main visual and narrative concepts used as the foundat
 
 🚧 **In development — DevClub Contest**
 
-The project is actively being developed and continuously refined during the contest period.
+The core experience is now structured and includes:
 
-> The roadmap represents the current project plan and may evolve as development progresses.
+* Immersive hero
+* Design system
+* Interactive header
+* Fullscreen navigation
+* Next Level section
+* Learning journey
+* Entrance animations
+* Scroll reveal animations
+* Magnetic interactions
+* Final CTA
+* Footer
+* Validated production build
+
+The next steps focus on **visual refinement, responsiveness, accessibility, performance, QA, and production deployment**.
 
 ---
 
@@ -587,6 +748,12 @@ npm run dev
 http://localhost:3000
 ```
 
+### Run the production build
+
+```bash
+npm run build
+```
+
 ---
 
 ## Deployment
@@ -620,9 +787,10 @@ docs: improve project README
 feat: establish design system
 feat: create immersive hero experience
 feat: add interactive header
-feat: add scroll storytelling experience
-feat: add formations and student stories
-feat: add mentors and companies section
+feat: add next level experience
+feat: add learning journey
+feat: add final call to action
+feat: add footer
 feat: enhance motion and microinteractions
 perf: optimize animations and images
 fix: improve responsive layout
