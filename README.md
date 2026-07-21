@@ -79,19 +79,19 @@ Os dois primeiros critérios representam a maior parte da avaliação do concurs
 
 ### Design System
 
-* [ ] Identidade visual
-* [ ] Paleta de cores
-* [ ] Sistema tipográfico
-* [ ] Espaçamento e layout global
-* [ ] Scrollbar personalizada
-* [ ] Estilo de seleção de texto
-* [ ] Fundamentos responsivos
+* [X] Identidade visual
+* [X] Paleta de cores
+* [X] Sistema tipográfico
+* [X] Espaçamento e layout global
+* [X] Scrollbar personalizada
+* [X] Estilo de seleção de texto
+* [X] Fundamentos responsivos
 
 ### Experiência Principal
 
 * [ ] Preloader
-* [ ] Header interativo
-* [ ] Hero imersivo
+* [X] Header interativo
+* [X] Hero imersivo
 * [ ] Storytelling baseado em scroll
 * [ ] Smooth scrolling
 * [ ] Cursor personalizado / interações com ponteiro
@@ -112,10 +112,10 @@ Os dois primeiros critérios representam a maior parte da avaliação do concurs
 
 ### Animações e Microinterações
 
-* [ ] Animações de entrada
+* [X] Animações de entrada
 * [ ] Animações de revelação durante o scroll
 * [ ] Animações de texto
-* [ ] Interações de hover
+* [X] Interações de hover
 * [ ] Botões magnéticos
 * [ ] Transições de imagens
 * [ ] Transições entre seções
@@ -398,19 +398,19 @@ The first two criteria represent the largest portion of the contest evaluation, 
 
 ### Design System
 
-* [ ] Visual identity
-* [ ] Color palette
-* [ ] Typography system
-* [ ] Global spacing and layout
-* [ ] Custom scrollbar
-* [ ] Selection styling
-* [ ] Responsive foundations
+* [X] Visual identity
+* [X] Color palette
+* [X] Typography system
+* [X] Global spacing and layout
+* [X] Custom scrollbar
+* [X] Selection styling
+* [X] Responsive foundations
 
 ### Core Experience
 
 * [ ] Preloader
-* [ ] Interactive header
-* [ ] Immersive hero section
+* [X] Interactive header
+* [X] Immersive hero section
 * [ ] Scroll-based storytelling
 * [ ] Smooth scrolling
 * [ ] Custom cursor / pointer interactions
@@ -431,10 +431,10 @@ The first two criteria represent the largest portion of the contest evaluation, 
 
 ### Motion & Microinteractions
 
-* [ ] Page entrance animations
+* [X] Page entrance animations
 * [ ] Scroll reveal animations
 * [ ] Text animations
-* [ ] Hover interactions
+* [X] Hover interactions
 * [ ] Magnetic buttons
 * [ ] Image transitions
 * [ ] Section transitions
