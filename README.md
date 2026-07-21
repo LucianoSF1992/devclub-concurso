@@ -18,6 +18,8 @@ A proposta deste projeto é transformar a navegação em uma experiência intera
 
 O objetivo é fazer com que o usuário não apenas percorra uma página, mas sinta que está avançando por uma jornada de evolução.
 
+Além da experiência frontend, o projeto também será expandido com uma arquitetura **Full Stack**, utilizando uma API REST desenvolvida em **ASP.NET Core**, persistência de dados com **Entity Framework Core** e integração entre frontend e backend.
+
 ---
 
 ## Conceito
@@ -61,6 +63,8 @@ O projeto foi desenvolvido priorizando os principais critérios de avaliação d
 * Acessibilidade
 
 A experiência visual e as interações são prioridades fundamentais do projeto, buscando criar uma apresentação marcante e tecnicamente bem estruturada.
+
+Além da experiência visual, o projeto busca demonstrar conhecimentos de desenvolvimento **Full Stack**, conectando uma aplicação moderna em Next.js a uma API REST construída com ASP.NET Core.
 
 ---
 
@@ -111,6 +115,8 @@ Uma chamada final construída para reforçar o conceito central da experiência:
 
 > **Seu próximo nível começa agora.**
 
+A seção também servirá como ponto de integração com o backend, permitindo futuramente o envio de mensagens através de uma API REST.
+
 ### Footer
 
 Rodapé com:
@@ -159,7 +165,7 @@ O Header possui um menu fullscreen animado com navegação para:
 * [ ] Preloader
 * [x] Header interativo
 * [x] Hero imersivo
-* [ ] Storytelling avançado baseado em scroll
+* [x] Storytelling baseado em scroll
 * [ ] Smooth scrolling
 * [ ] Cursor personalizado / interações avançadas com ponteiro
 * [x] Interações magnéticas
@@ -188,6 +194,21 @@ O Header possui um menu fullscreen animado com navegação para:
 * [ ] Transições avançadas entre seções
 * [ ] Cards interativos
 
+### Backend & Full Stack
+
+* [ ] Criação da ASP.NET Core Web API
+* [ ] Configuração da arquitetura do backend
+* [ ] Entity Framework Core
+* [ ] Banco de dados SQLite
+* [ ] Model de mensagens de contato
+* [ ] DTO e validação de requisições
+* [ ] Endpoint de contato
+* [ ] Persistência de dados
+* [ ] Integração entre frontend e backend
+* [ ] Tratamento de erros
+* [ ] Rate limiting
+* [ ] Configuração da API para produção
+
 ### Qualidade
 
 * [ ] Revisão de responsividade mobile
@@ -207,7 +228,9 @@ O Header possui um menu fullscreen animado com navegação para:
 * [ ] Configuração do Nginx
 * [ ] Certificado SSL
 * [ ] Configuração do subdomínio
-* [ ] Deploy em produção
+* [ ] Deploy do backend
+* [ ] Deploy do frontend
+* [ ] Integração em produção
 * [ ] QA final
 * [ ] Envio do concurso
 
@@ -217,6 +240,8 @@ O Header possui um menu fullscreen animado com navegação para:
 
 ## Tecnologias
 
+### Frontend
+
 * [Next.js](https://nextjs.org/)
 * [React](https://react.dev/)
 * TypeScript
@@ -224,22 +249,43 @@ O Header possui um menu fullscreen animado com navegação para:
 * [Motion](https://motion.dev/)
 * [Lucide React](https://lucide.dev/)
 
+### Backend
+
+* C#
+* ASP.NET Core Web API
+* Entity Framework Core
+* SQLite
+* REST API
+
 ---
 
 ## Arquitetura
 
-A aplicação utiliza uma arquitetura baseada em componentes, buscando separar responsabilidades e facilitar a manutenção e evolução do projeto.
+A aplicação utiliza uma arquitetura baseada em componentes no frontend e uma API REST separada no backend, buscando separar responsabilidades e facilitar a manutenção e evolução do projeto.
 
-A estrutura atual está organizada em:
+A estrutura planejada está organizada em:
 
 ```text
-app/
-components/
-  layout/
-  sections/
-  ui/
-public/
-docs/
+devclub-concurso/
+│
+├── app/
+│
+├── components/
+│   ├── layout/
+│   ├── sections/
+│   └── ui/
+│
+├── public/
+│
+├── docs/
+│
+└── backend/
+    └── DevClub.Api/
+        ├── Controllers/
+        ├── Data/
+        ├── DTOs/
+        ├── Models/
+        └── Program.cs
 ```
 
 A arquitetura prioriza:
@@ -251,6 +297,27 @@ A arquitetura prioriza:
 * Escalabilidade
 * Performance
 * Acessibilidade
+* Separação entre frontend e backend
+* Integração via API REST
+
+A arquitetura Full Stack planejada será:
+
+```text
+                    USUÁRIO
+                       │
+                       ▼
+             Next.js / React
+                       │
+                       │ HTTP / REST
+                       ▼
+              ASP.NET Core API
+                       │
+                       ▼
+                Entity Framework
+                       │
+                       ▼
+                   SQLite
+```
 
 ---
 
@@ -284,9 +351,9 @@ O documento apresenta os principais conceitos visuais e narrativos utilizados co
 
 ## Status
 
-🚧 **Em desenvolvimento — Concurso DevClub**
+🚧 **Frontend concluído — Backend em desenvolvimento**
 
-A experiência principal já está estruturada e conta com:
+A experiência principal de frontend está estruturada e conta com:
 
 * Hero imersivo
 * Design system
@@ -296,12 +363,24 @@ A experiência principal já está estruturada e conta com:
 * Jornada de aprendizado
 * Animações de entrada
 * Animações de scroll reveal
+* Interações de hover
 * Interações magnéticas
 * CTA final
 * Footer
+* Metadados básicos de SEO
 * Build de produção validado
 
-As próximas etapas estão concentradas em **refinamento visual, responsividade, acessibilidade, performance, QA e publicação em produção**.
+O build de produção foi executado com sucesso utilizando:
+
+```bash
+npm run build
+```
+
+A aplicação foi compilada, validada pelo TypeScript e gerada como página estática pelo Next.js.
+
+A próxima etapa do projeto será a implementação de uma API REST com **ASP.NET Core**, **Entity Framework Core** e **SQLite**, seguida da integração entre o frontend Next.js e o backend.
+
+Após a integração Full Stack, serão realizadas as etapas de refinamento visual, responsividade, acessibilidade, performance, QA e publicação em produção.
 
 ---
 
@@ -312,6 +391,7 @@ As próximas etapas estão concentradas em **refinamento visual, responsividade,
 Antes de começar, certifique-se de ter instalado:
 
 * Node.js 22+
+* .NET 9 SDK
 * npm
 * Git
 
@@ -351,14 +431,53 @@ http://localhost:3000
 npm run build
 ```
 
+### Backend
+
+O backend será executado a partir do diretório:
+
+```text
+backend/DevClub.Api/
+```
+
+Após a implementação da API, o projeto poderá ser executado com:
+
+```bash
+cd backend/DevClub.Api
+dotnet run
+```
+
+A API será disponibilizada localmente em uma porta configurada pelo ASP.NET Core.
+
 ---
 
 ## Deploy
 
-A aplicação será publicada em:
+A aplicação frontend será publicada em:
 
 ```text
 https://devclub.lucianoferreiradev.com
+```
+
+A API backend será disponibilizada separadamente em:
+
+```text
+https://api.devclub.lucianoferreiradev.com
+```
+
+A arquitetura de produção planejada será:
+
+```text
+Internet
+    │
+    ├── devclub.lucianoferreiradev.com
+    │          │
+    │          ▼
+    │       Next.js
+    │
+    └── api.devclub.lucianoferreiradev.com
+               │
+               ▼
+         ASP.NET Core API
 ```
 
 O deploy será realizado utilizando:
@@ -368,6 +487,7 @@ O deploy será realizado utilizando:
 * Nginx
 * Node.js
 * Next.js
+* ASP.NET Core
 * HTTPS / SSL
 
 ---
@@ -388,9 +508,14 @@ feat: add next level experience
 feat: add learning journey
 feat: add final call to action
 feat: add footer
+feat: complete core landing page experience
+feat: add ASP.NET Core backend
+feat: add contact message persistence
+feat: integrate contact form with backend
 feat: enhance motion and microinteractions
 perf: optimize animations and images
 fix: improve responsive layout
+docs: update roadmap and project status
 docs: update project documentation
 chore: prepare production deployment
 ```
@@ -420,6 +545,8 @@ The challenge is to create an institutional experience that presents the DevClub
 The project aims to transform navigation into an interactive experience through **visual storytelling, animations, microinteractions, editorial typography, and a technology-inspired visual identity**.
 
 The goal is to make users feel that they are progressing through a journey rather than simply scrolling through a traditional landing page.
+
+In addition to the frontend experience, the project is being expanded into a **Full Stack architecture**, using an **ASP.NET Core REST API**, **Entity Framework Core** for data persistence, and frontend/backend integration.
 
 ---
 
@@ -464,6 +591,8 @@ The project prioritizes the main evaluation criteria of the challenge:
 * Accessibility
 
 Visual experience and interactions are fundamental priorities throughout the development process.
+
+In addition to the visual experience, the project aims to demonstrate **Full Stack development skills** by connecting a modern Next.js frontend to a REST API built with ASP.NET Core.
 
 ---
 
@@ -514,6 +643,8 @@ A final call to action reinforcing the central concept:
 
 > **Your next level starts now.**
 
+The section will also serve as a future integration point with the backend, allowing messages to be submitted through a REST API.
+
 ### Footer
 
 A footer containing:
@@ -562,7 +693,7 @@ The Header includes an animated fullscreen menu with navigation to:
 * [ ] Preloader
 * [x] Interactive header
 * [x] Immersive hero section
-* [ ] Advanced scroll-based storytelling
+* [x] Scroll-based storytelling
 * [ ] Smooth scrolling
 * [ ] Custom cursor / advanced pointer interactions
 * [x] Magnetic interactions
@@ -591,6 +722,21 @@ The Header includes an animated fullscreen menu with navigation to:
 * [ ] Advanced section transitions
 * [ ] Interactive cards
 
+### Backend & Full Stack
+
+* [ ] ASP.NET Core Web API creation
+* [ ] Backend architecture setup
+* [ ] Entity Framework Core
+* [ ] SQLite database
+* [ ] Contact message model
+* [ ] DTO and request validation
+* [ ] Contact API endpoint
+* [ ] Data persistence
+* [ ] Frontend/backend integration
+* [ ] Error handling
+* [ ] Rate limiting
+* [ ] Production API configuration
+
 ### Quality
 
 * [ ] Mobile responsiveness review
@@ -610,7 +756,9 @@ The Header includes an animated fullscreen menu with navigation to:
 * [ ] Nginx configuration
 * [ ] SSL certificate
 * [ ] Subdomain configuration
-* [ ] Production deployment
+* [ ] Backend deployment
+* [ ] Frontend deployment
+* [ ] Production integration
 * [ ] Final QA
 * [ ] Contest submission
 
@@ -620,6 +768,8 @@ The Header includes an animated fullscreen menu with navigation to:
 
 ## Technologies
 
+### Frontend
+
 * [Next.js](https://nextjs.org/)
 * [React](https://react.dev/)
 * TypeScript
@@ -627,22 +777,43 @@ The Header includes an animated fullscreen menu with navigation to:
 * [Motion](https://motion.dev/)
 * [Lucide React](https://lucide.dev/)
 
+### Backend
+
+* C#
+* ASP.NET Core Web API
+* Entity Framework Core
+* SQLite
+* REST API
+
 ---
 
 ## Architecture
 
-The application uses a component-based architecture focused on separation of concerns, maintainability, and scalability.
+The application uses a component-based architecture on the frontend and a separate REST API on the backend, focusing on separation of concerns, maintainability, and scalability.
 
-The current structure is organized into:
+The planned structure is organized into:
 
 ```text
-app/
-components/
-  layout/
-  sections/
-  ui/
-public/
-docs/
+devclub-concurso/
+│
+├── app/
+│
+├── components/
+│   ├── layout/
+│   ├── sections/
+│   └── ui/
+│
+├── public/
+│
+├── docs/
+│
+└── backend/
+    └── DevClub.Api/
+        ├── Controllers/
+        ├── Data/
+        ├── DTOs/
+        ├── Models/
+        └── Program.cs
 ```
 
 The architecture prioritizes:
@@ -654,6 +825,27 @@ The architecture prioritizes:
 * Scalability
 * Performance
 * Accessibility
+* Frontend/backend separation
+* REST API integration
+
+The planned Full Stack architecture is:
+
+```text
+                    USER
+                     │
+                     ▼
+             Next.js / React
+                     │
+                     │ HTTP / REST
+                     ▼
+              ASP.NET Core API
+                     │
+                     ▼
+                Entity Framework
+                     │
+                     ▼
+                   SQLite
+```
 
 ---
 
@@ -687,9 +879,9 @@ The document presents the main visual and narrative concepts used as the foundat
 
 ## Status
 
-🚧 **In development — DevClub Contest**
+🚧 **Frontend completed — Backend in development**
 
-The core experience is now structured and includes:
+The core frontend experience is now structured and includes:
 
 * Immersive hero
 * Design system
@@ -699,12 +891,24 @@ The core experience is now structured and includes:
 * Learning journey
 * Entrance animations
 * Scroll reveal animations
+* Hover interactions
 * Magnetic interactions
 * Final CTA
 * Footer
+* Basic SEO metadata
 * Validated production build
 
-The next steps focus on **visual refinement, responsiveness, accessibility, performance, QA, and production deployment**.
+The production build was successfully executed using:
+
+```bash
+npm run build
+```
+
+The application was successfully compiled, validated by TypeScript, and generated as a static page by Next.js.
+
+The next stage of the project is the implementation of a REST API using **ASP.NET Core**, **Entity Framework Core**, and **SQLite**, followed by frontend/backend integration.
+
+After the Full Stack integration, the project will proceed with visual refinement, responsiveness, accessibility, performance optimization, QA, and production deployment.
 
 ---
 
@@ -715,6 +919,7 @@ The next steps focus on **visual refinement, responsiveness, accessibility, perf
 Make sure you have installed:
 
 * Node.js 22+
+* .NET 9 SDK
 * npm
 * Git
 
@@ -754,14 +959,53 @@ http://localhost:3000
 npm run build
 ```
 
+### Backend
+
+The backend will be located at:
+
+```text
+backend/DevClub.Api/
+```
+
+After the API implementation, the backend can be started with:
+
+```bash
+cd backend/DevClub.Api
+dotnet run
+```
+
+The API will be available locally on a port configured by ASP.NET Core.
+
 ---
 
 ## Deployment
 
-The application will be deployed at:
+The frontend application will be deployed at:
 
 ```text
 https://devclub.lucianoferreiradev.com
+```
+
+The backend API will be deployed separately at:
+
+```text
+https://api.devclub.lucianoferreiradev.com
+```
+
+The planned production architecture is:
+
+```text
+Internet
+    │
+    ├── devclub.lucianoferreiradev.com
+    │          │
+    │          ▼
+    │       Next.js
+    │
+    └── api.devclub.lucianoferreiradev.com
+               │
+               ▼
+         ASP.NET Core API
 ```
 
 The deployment will use dedicated infrastructure with:
@@ -771,6 +1015,7 @@ The deployment will use dedicated infrastructure with:
 * Nginx
 * Node.js
 * Next.js
+* ASP.NET Core
 * HTTPS / SSL
 
 ---
@@ -791,9 +1036,14 @@ feat: add next level experience
 feat: add learning journey
 feat: add final call to action
 feat: add footer
+feat: complete core landing page experience
+feat: add ASP.NET Core backend
+feat: add contact message persistence
+feat: integrate contact form with backend
 feat: enhance motion and microinteractions
 perf: optimize animations and images
 fix: improve responsive layout
+docs: update roadmap and project status
 docs: update project documentation
 chore: prepare production deployment
 ```
