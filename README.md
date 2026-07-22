@@ -18,7 +18,11 @@ A proposta deste projeto é transformar a navegação em uma experiência intera
 
 O objetivo é fazer com que o usuário não apenas percorra uma página, mas sinta que está avançando por uma jornada de evolução.
 
-Além da experiência frontend, o projeto também será expandido com uma arquitetura **Full Stack**, utilizando uma API REST desenvolvida em **ASP.NET Core**, persistência de dados com **Entity Framework Core** e integração entre frontend e backend.
+Além da experiência frontend, o projeto foi expandido para uma arquitetura **Full Stack**, utilizando uma aplicação frontend desenvolvida com **Next.js**, uma API REST desenvolvida em **ASP.NET Core**, persistência de dados com **Entity Framework Core** e banco de dados **SQLite**.
+
+O backend também contempla funcionalidades de interação com o usuário, como o envio e armazenamento de mensagens através de um formulário de contato integrado à API.
+
+As próximas etapas incluem a construção de uma **Área do Aluno**, gerenciamento de **Cursos** e evolução da experiência visual da página, consolidando o projeto como uma demonstração completa de desenvolvimento Full Stack.
 
 ---
 
@@ -61,10 +65,14 @@ O projeto foi desenvolvido priorizando os principais critérios de avaliação d
 * Responsividade
 * Performance
 * Acessibilidade
+* Integração Full Stack
+* Organização arquitetural
+* Persistência de dados
+* Experiência do usuário
 
 A experiência visual e as interações são prioridades fundamentais do projeto, buscando criar uma apresentação marcante e tecnicamente bem estruturada.
 
-Além da experiência visual, o projeto busca demonstrar conhecimentos de desenvolvimento **Full Stack**, conectando uma aplicação moderna em Next.js a uma API REST construída com ASP.NET Core.
+Além da experiência visual, o projeto demonstra conhecimentos de desenvolvimento **Full Stack**, conectando uma aplicação moderna em Next.js a uma API REST construída com ASP.NET Core.
 
 ---
 
@@ -84,6 +92,10 @@ Uma abertura imersiva com:
 * CTA magnético
 * Indicador de scroll
 
+A próxima evolução do Hero terá como objetivo ampliar a sensação de profundidade e movimento, inspirando-se em experiências digitais modernas de plataformas de tecnologia e educação, mantendo uma identidade visual própria para o projeto.
+
+---
+
 ### Next Level
 
 Uma seção narrativa que apresenta a evolução do usuário através dos conceitos:
@@ -95,6 +107,8 @@ Construa
    ↓
 Evolua
 ```
+
+---
 
 ### Journey
 
@@ -109,13 +123,63 @@ Uma jornada visual estruturada em etapas:
 
 A seção utiliza animações de revelação durante o scroll e uma timeline visual para representar progressão.
 
+---
+
 ### Final CTA
 
 Uma chamada final construída para reforçar o conceito central da experiência:
 
 > **Seu próximo nível começa agora.**
 
-A seção também servirá como ponto de integração com o backend, permitindo futuramente o envio de mensagens através de uma API REST.
+A seção direciona o usuário para a área de contato e reforça a proposta de interação da experiência.
+
+---
+
+### Contact
+
+Seção de contato integrada ao backend.
+
+O formulário permite o envio de:
+
+* Nome
+* E-mail
+* Mensagem
+
+O fluxo atual funciona através da integração:
+
+```text
+Usuário
+   │
+   ▼
+Formulário Contact.tsx
+   │
+   │ POST /api/contact
+   ▼
+ASP.NET Core API
+   │
+   ▼
+Validação do DTO
+   │
+   ▼
+Entity Framework Core
+   │
+   ▼
+SQLite
+```
+
+O frontend possui:
+
+* Validação básica dos campos
+* Estado de envio
+* Indicador de carregamento
+* Mensagem de sucesso
+* Mensagem de erro
+* Tratamento de falha de conexão
+* Limpeza automática do formulário após sucesso
+
+A integração frontend/backend foi validada com sucesso em ambiente local.
+
+---
 
 ### Footer
 
@@ -125,6 +189,8 @@ Rodapé com:
 * Navegação interna
 * Links para as principais seções
 * Informações de copyright
+
+---
 
 ### Navegação
 
@@ -137,9 +203,9 @@ O Header possui um menu fullscreen animado com navegação para:
 
 ---
 
-## Roadmap
+# Roadmap
 
-### Fundação do Projeto
+## Fundação do Projeto
 
 * [x] Criação do repositório
 * [x] Inicialização do projeto Next.js
@@ -150,7 +216,9 @@ O Header possui um menu fullscreen animado com navegação para:
 * [x] README do projeto
 * [x] Roadmap inicial
 
-### Design System
+---
+
+## Design System
 
 * [x] Identidade visual
 * [x] Paleta de cores
@@ -160,7 +228,9 @@ O Header possui um menu fullscreen animado com navegação para:
 * [x] Estilo de seleção de texto
 * [x] Fundamentos responsivos
 
-### Experiência Principal
+---
+
+## Experiência Principal
 
 * [ ] Preloader
 * [x] Header interativo
@@ -169,11 +239,16 @@ O Header possui um menu fullscreen animado com navegação para:
 * [ ] Smooth scrolling
 * [ ] Cursor personalizado / interações avançadas com ponteiro
 * [x] Interações magnéticas
+* [ ] Evolução visual do Hero
+* [ ] Efeito de profundidade e movimento inspirado em experiências modernas de tecnologia
+* [ ] Refinamento das transições entre seções
 
-### Seções de Conteúdo
+---
 
-* [ ] O Desafio
-* [ ] Sobre o DevClub
+## Seções de Conteúdo
+
+* [x] O Desafio
+* [x] Sobre o DevClub
 * [x] Jornada de Aprendizado
 * [ ] Formações
 * [ ] Histórias de Alunos
@@ -181,9 +256,112 @@ O Header possui um menu fullscreen animado com navegação para:
 * [ ] Tutores
 * [x] Next Level
 * [x] CTA Final
+* [x] Seção de Contato
 * [x] Footer
 
-### Animações e Microinterações
+---
+
+## Área do Aluno
+
+* [ ] Definição da arquitetura da Área do Aluno
+* [ ] Modelagem de usuário/aluno
+* [ ] Cadastro de aluno
+* [ ] Autenticação
+* [ ] Login
+* [ ] JWT
+* [ ] Refresh Token
+* [ ] Proteção de endpoints
+* [ ] Área autenticada do aluno
+* [ ] Perfil do aluno
+* [ ] Dashboard do aluno
+* [ ] Logout
+* [ ] Tratamento de autorização
+* [ ] Integração frontend/backend
+
+---
+
+## Cursos
+
+* [ ] Modelagem de cursos
+* [ ] Modelagem de módulos
+* [ ] Modelagem de aulas
+* [ ] CRUD de cursos
+* [ ] CRUD de módulos
+* [ ] CRUD de aulas
+* [ ] Endpoint de listagem de cursos
+* [ ] Endpoint de detalhes do curso
+* [ ] Inscrição do aluno em cursos
+* [ ] Controle de progresso
+* [ ] Registro de aulas concluídas
+* [ ] Dashboard de cursos do aluno
+* [ ] Persistência de progresso
+* [ ] Integração frontend/backend
+
+---
+
+## Backend & Full Stack
+
+### Fundação
+
+* [x] Criação da ASP.NET Core Web API
+* [x] Configuração inicial do backend
+* [x] Entity Framework Core
+* [x] Banco de dados SQLite
+* [x] Configuração do DbContext
+* [x] Migration inicial
+
+### Contato
+
+* [x] Model de mensagens de contato
+* [x] DTO de criação de mensagem
+* [x] Validação de requisição
+* [x] Endpoint de contato
+* [x] Persistência de mensagens
+* [x] Integração entre frontend e backend
+* [x] Tratamento básico de erros
+
+### Área do Aluno
+
+* [ ] Entidades de usuário/aluno
+* [ ] Autenticação
+* [ ] Autorização
+* [ ] JWT
+* [ ] Refresh Token
+* [ ] Proteção de endpoints
+* [ ] Perfil do aluno
+* [ ] Dashboard
+
+### Cursos
+
+* [ ] Entidade Course
+* [ ] Entidade Module
+* [ ] Entidade Lesson
+* [ ] Entidade Enrollment
+* [ ] Entidade LessonProgress
+* [ ] Relacionamentos entre entidades
+* [ ] Migrations
+* [ ] CRUD de cursos
+* [ ] CRUD de módulos
+* [ ] CRUD de aulas
+* [ ] Inscrição em cursos
+* [ ] Progresso do aluno
+* [ ] Endpoints protegidos
+
+### Segurança e Produção
+
+* [ ] Rate limiting
+* [ ] CORS para produção
+* [ ] Configuração de variáveis de ambiente
+* [ ] Connection string de produção
+* [ ] Configuração da API para produção
+* [ ] Tratamento global de exceções
+* [ ] Logging estruturado
+* [ ] Health checks
+* [ ] Documentação da API
+
+---
+
+## Animações e Microinterações
 
 * [x] Animações de entrada
 * [x] Animações de revelação durante o scroll
@@ -193,23 +371,13 @@ O Header possui um menu fullscreen animado com navegação para:
 * [ ] Transições de imagens
 * [ ] Transições avançadas entre seções
 * [ ] Cards interativos
+* [ ] Efeitos avançados no Hero
+* [ ] Microinterações na Área do Aluno
+* [ ] Microinterações na experiência de Cursos
 
-### Backend & Full Stack
+---
 
-* [ ] Criação da ASP.NET Core Web API
-* [ ] Configuração da arquitetura do backend
-* [ ] Entity Framework Core
-* [ ] Banco de dados SQLite
-* [ ] Model de mensagens de contato
-* [ ] DTO e validação de requisições
-* [ ] Endpoint de contato
-* [ ] Persistência de dados
-* [ ] Integração entre frontend e backend
-* [ ] Tratamento de erros
-* [ ] Rate limiting
-* [ ] Configuração da API para produção
-
-### Qualidade
+## Qualidade
 
 * [ ] Revisão de responsividade mobile
 * [ ] Revisão de responsividade tablet
@@ -218,20 +386,36 @@ O Header possui um menu fullscreen animado com navegação para:
 * [ ] Otimização de performance
 * [x] Metadados básicos de SEO
 * [ ] Metadados Open Graph
+* [ ] Configuração de sitemap
+* [ ] Configuração de robots.txt
 * [ ] Análise Lighthouse
 * [ ] Testes cross-browser
+* [ ] Testes da API
+* [ ] Testes de integração
+* [ ] Revisão de segurança
+* [ ] Revisão final da experiência do usuário
 
-### Deploy
+---
 
-* [x] Build de produção validado
+## Deploy
+
+* [x] Build de produção do frontend validado
 * [ ] Configuração do VPS
 * [ ] Configuração do Nginx
 * [ ] Certificado SSL
 * [ ] Configuração do subdomínio
 * [ ] Deploy do backend
 * [ ] Deploy do frontend
-* [ ] Integração em produção
+* [ ] Configuração do banco de dados de produção
+* [ ] Configuração de variáveis de ambiente
+* [ ] Integração frontend/backend em produção
+* [ ] Testes de API em produção
 * [ ] QA final
+* [ ] Teste completo do fluxo de contato
+* [ ] Teste completo de autenticação
+* [ ] Teste completo da Área do Aluno
+* [ ] Teste completo dos Cursos
+* [ ] Monitoramento inicial
 * [ ] Envio do concurso
 
 > O roadmap representa o planejamento atual do projeto e poderá evoluir conforme o desenvolvimento e as necessidades da experiência.
@@ -256,6 +440,8 @@ O Header possui um menu fullscreen animado com navegação para:
 * Entity Framework Core
 * SQLite
 * REST API
+* JWT
+* OpenAPI / Swagger
 
 ---
 
@@ -263,29 +449,59 @@ O Header possui um menu fullscreen animado com navegação para:
 
 A aplicação utiliza uma arquitetura baseada em componentes no frontend e uma API REST separada no backend, buscando separar responsabilidades e facilitar a manutenção e evolução do projeto.
 
-A estrutura planejada está organizada em:
+A estrutura atual está organizada em:
 
 ```text
 devclub-concurso/
 │
 ├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
 │
 ├── components/
 │   ├── layout/
+│   │   ├── Header.tsx
+│   │   └── Footer.tsx
+│   │
 │   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── Challenge.tsx
+│   │   ├── NextLevel.tsx
+│   │   ├── AboutDevClub.tsx
+│   │   ├── Journey.tsx
+│   │   ├── FinalCTA.tsx
+│   │   └── Contact.tsx
+│   │
 │   └── ui/
+│       ├── GridBackground.tsx
+│       ├── InteractiveGlow.tsx
+│       └── MagneticButton.tsx
 │
 ├── public/
 │
 ├── docs/
+│   └── creative-direction.md
 │
 └── backend/
     └── DevClub.Api/
         ├── Controllers/
+        │   └── ContactController.cs
+        │
         ├── Data/
+        │   └── AppDbContext.cs
+        │
         ├── DTOs/
+        │   └── CreateContactMessageRequest.cs
+        │
+        ├── Migrations/
+        │
         ├── Models/
-        └── Program.cs
+        │   └── ContactMessage.cs
+        │
+        ├── Program.cs
+        ├── appsettings.json
+        └── DevClub.Api.csproj
 ```
 
 A arquitetura prioriza:
@@ -299,8 +515,11 @@ A arquitetura prioriza:
 * Acessibilidade
 * Separação entre frontend e backend
 * Integração via API REST
+* Persistência de dados
+* Segurança
+* Evolução incremental
 
-A arquitetura Full Stack planejada será:
+A arquitetura Full Stack atual é:
 
 ```text
                     USUÁRIO
@@ -313,10 +532,38 @@ A arquitetura Full Stack planejada será:
               ASP.NET Core API
                        │
                        ▼
-                Entity Framework
+             Entity Framework Core
                        │
                        ▼
-                   SQLite
+                    SQLite
+```
+
+A arquitetura futura, com autenticação e Área do Aluno, será expandida para:
+
+```text
+                         USUÁRIO
+                            │
+                            ▼
+                   Next.js / React
+                            │
+                            │ HTTP / REST
+                            ▼
+                    ASP.NET Core API
+                            │
+              ┌─────────────┴─────────────┐
+              │                           │
+              ▼                           ▼
+        Autenticação                  Cursos
+          JWT                         Matrículas
+              │                       Progresso
+              │                           │
+              └─────────────┬─────────────┘
+                            │
+                            ▼
+                  Entity Framework Core
+                            │
+                            ▼
+                         SQLite
 ```
 
 ---
@@ -332,8 +579,12 @@ A experiência visual foi construída com foco em:
 * Scroll Reveal Animations
 * Microinteractions
 * Motion Design
+* Interactive Hero
+* Immersive Storytelling
 
 A proposta é criar uma experiência que se aproxime mais de uma narrativa digital interativa do que de uma landing page institucional tradicional.
+
+A evolução visual do Hero será uma das próximas etapas prioritárias, buscando adicionar maior sensação de profundidade, movimento e interação sem comprometer performance, acessibilidade ou identidade visual.
 
 ---
 
@@ -351,15 +602,17 @@ O documento apresenta os principais conceitos visuais e narrativos utilizados co
 
 ## Status
 
-🚧 **Frontend concluído — Backend em desenvolvimento**
+🚧 **Full Stack em desenvolvimento — Integração de contato concluída**
 
-A experiência principal de frontend está estruturada e conta com:
+O projeto atualmente conta com:
 
 * Hero imersivo
 * Design system
 * Header interativo
 * Navegação fullscreen
 * Seção Next Level
+* Seção Challenge
+* Seção About DevClub
 * Jornada de aprendizado
 * Animações de entrada
 * Animações de scroll reveal
@@ -367,20 +620,43 @@ A experiência principal de frontend está estruturada e conta com:
 * Interações magnéticas
 * CTA final
 * Footer
+* Seção de contato
+* API REST com ASP.NET Core
+* Entity Framework Core
+* SQLite
+* Migration inicial
+* Model de mensagens de contato
+* DTO de requisição
+* Endpoint de contato
+* Persistência de mensagens
+* Integração frontend/backend
+* Feedback visual de sucesso e erro
 * Metadados básicos de SEO
-* Build de produção validado
+* Build de produção do frontend validado
 
-O build de produção foi executado com sucesso utilizando:
+O fluxo de contato foi implementado e validado com sucesso em ambiente local:
 
-```bash
-npm run build
+```text
+Next.js
+   │
+   │ POST /api/contact
+   ▼
+ASP.NET Core
+   │
+   ▼
+Entity Framework Core
+   │
+   ▼
+SQLite
 ```
 
-A aplicação foi compilada, validada pelo TypeScript e gerada como página estática pelo Next.js.
+A próxima etapa prioritária será a implementação da **Área do Aluno**, incluindo autenticação, autorização e estrutura de usuário.
 
-A próxima etapa do projeto será a implementação de uma API REST com **ASP.NET Core**, **Entity Framework Core** e **SQLite**, seguida da integração entre o frontend Next.js e o backend.
+Em seguida, será desenvolvida a estrutura de **Cursos**, incluindo cursos, módulos, aulas, inscrições e acompanhamento de progresso.
 
-Após a integração Full Stack, serão realizadas as etapas de refinamento visual, responsividade, acessibilidade, performance, QA e publicação em produção.
+Após a conclusão das principais funcionalidades do backend, o frontend será refinado com uma evolução visual do Hero, novas interações e ajustes finais de experiência.
+
+Por fim, serão realizadas as etapas de qualidade, segurança, QA e deploy em produção.
 
 ---
 
@@ -413,16 +689,37 @@ cd devclub-concurso
 npm install
 ```
 
-### Execute o ambiente de desenvolvimento
+### Execute o frontend
 
 ```bash
 npm run dev
 ```
 
-### Acesse no navegador
+Acesse:
 
 ```text
 http://localhost:3000
+```
+
+### Execute o backend
+
+Em outro terminal:
+
+```bash
+cd backend/DevClub.Api
+dotnet run
+```
+
+A API será disponibilizada localmente em:
+
+```text
+http://localhost:5113
+```
+
+O endpoint de contato utilizado atualmente é:
+
+```text
+POST http://localhost:5113/api/contact
 ```
 
 ### Execute o build de produção
@@ -430,23 +727,6 @@ http://localhost:3000
 ```bash
 npm run build
 ```
-
-### Backend
-
-O backend será executado a partir do diretório:
-
-```text
-backend/DevClub.Api/
-```
-
-Após a implementação da API, o projeto poderá ser executado com:
-
-```bash
-cd backend/DevClub.Api
-dotnet run
-```
-
-A API será disponibilizada localmente em uma porta configurada pelo ASP.NET Core.
 
 ---
 
@@ -478,6 +758,12 @@ Internet
                │
                ▼
          ASP.NET Core API
+               │
+               ▼
+        Entity Framework Core
+               │
+               ▼
+             SQLite
 ```
 
 O deploy será realizado utilizando:
@@ -512,9 +798,16 @@ feat: complete core landing page experience
 feat: add ASP.NET Core backend
 feat: add contact message persistence
 feat: integrate contact form with backend
-feat: enhance motion and microinteractions
+feat: add student authentication
+feat: add student area
+feat: add course management
+feat: add course enrollment
+feat: add student course progress
+feat: enhance hero experience
+feat: add advanced motion interactions
 perf: optimize animations and images
 fix: improve responsive layout
+fix: improve API error handling
 docs: update roadmap and project status
 docs: update project documentation
 chore: prepare production deployment
@@ -546,7 +839,11 @@ The project aims to transform navigation into an interactive experience through 
 
 The goal is to make users feel that they are progressing through a journey rather than simply scrolling through a traditional landing page.
 
-In addition to the frontend experience, the project is being expanded into a **Full Stack architecture**, using an **ASP.NET Core REST API**, **Entity Framework Core** for data persistence, and frontend/backend integration.
+In addition to the frontend experience, the project has been expanded into a **Full Stack architecture**, using a **Next.js** frontend, an **ASP.NET Core REST API**, **Entity Framework Core** for data persistence, and **SQLite** as the database.
+
+The backend currently supports contact message submission and persistence through an integrated frontend form.
+
+The next stages include building a **Student Area**, **Course management**, authentication, authorization, and a refined immersive frontend experience.
 
 ---
 
@@ -589,10 +886,14 @@ The project prioritizes the main evaluation criteria of the challenge:
 * Responsiveness
 * Performance
 * Accessibility
+* Full Stack integration
+* Architectural organization
+* Data persistence
+* User experience
 
 Visual experience and interactions are fundamental priorities throughout the development process.
 
-In addition to the visual experience, the project aims to demonstrate **Full Stack development skills** by connecting a modern Next.js frontend to a REST API built with ASP.NET Core.
+In addition to the visual experience, the project demonstrates **Full Stack development skills** by connecting a modern Next.js frontend to a REST API built with ASP.NET Core.
 
 ---
 
@@ -612,6 +913,10 @@ An immersive opening experience featuring:
 * Magnetic CTA
 * Scroll indicator
 
+The next iteration of the Hero will focus on increasing depth, movement, and immersion, inspired by modern technology and education platforms while maintaining an original visual identity.
+
+---
+
 ### Next Level
 
 A narrative section presenting the user's evolution through:
@@ -623,6 +928,8 @@ Build
    ↓
 Evolve
 ```
+
+---
 
 ### Journey
 
@@ -637,13 +944,63 @@ A visual journey structured around four stages:
 
 The section uses scroll reveal animations and a visual timeline to represent progression.
 
+---
+
 ### Final CTA
 
 A final call to action reinforcing the central concept:
 
 > **Your next level starts now.**
 
-The section will also serve as a future integration point with the backend, allowing messages to be submitted through a REST API.
+The section directs users toward the contact experience and reinforces the project's interactive nature.
+
+---
+
+### Contact
+
+A contact section fully integrated with the backend.
+
+The form allows users to submit:
+
+* Name
+* Email
+* Message
+
+The current flow is:
+
+```text
+User
+   │
+   ▼
+Contact.tsx
+   │
+   │ POST /api/contact
+   ▼
+ASP.NET Core API
+   │
+   ▼
+DTO Validation
+   │
+   ▼
+Entity Framework Core
+   │
+   ▼
+SQLite
+```
+
+The frontend includes:
+
+* Basic field validation
+* Submission state
+* Loading indicator
+* Success feedback
+* Error feedback
+* Connection failure handling
+* Automatic form reset after successful submission
+
+The frontend/backend integration has been successfully validated in the local development environment.
+
+---
 
 ### Footer
 
@@ -653,6 +1010,8 @@ A footer containing:
 * Internal navigation
 * Main section links
 * Copyright information
+
+---
 
 ### Navigation
 
@@ -665,9 +1024,9 @@ The Header includes an animated fullscreen menu with navigation to:
 
 ---
 
-## Roadmap
+# Roadmap
 
-### Project Foundation
+## Project Foundation
 
 * [x] Repository creation
 * [x] Next.js project initialization
@@ -678,7 +1037,9 @@ The Header includes an animated fullscreen menu with navigation to:
 * [x] Project README
 * [x] Initial roadmap
 
-### Design System
+---
+
+## Design System
 
 * [x] Visual identity
 * [x] Color palette
@@ -688,7 +1049,9 @@ The Header includes an animated fullscreen menu with navigation to:
 * [x] Selection styling
 * [x] Responsive foundations
 
-### Core Experience
+---
+
+## Core Experience
 
 * [ ] Preloader
 * [x] Interactive header
@@ -697,11 +1060,16 @@ The Header includes an animated fullscreen menu with navigation to:
 * [ ] Smooth scrolling
 * [ ] Custom cursor / advanced pointer interactions
 * [x] Magnetic interactions
+* [ ] Hero visual evolution
+* [ ] Depth and motion effects inspired by modern technology experiences
+* [ ] Refined transitions between sections
 
-### Content Sections
+---
 
-* [ ] The Challenge
-* [ ] About DevClub
+## Content Sections
+
+* [x] The Challenge
+* [x] About DevClub
 * [x] Learning Journey
 * [ ] Formations
 * [ ] Student Stories
@@ -709,9 +1077,112 @@ The Header includes an animated fullscreen menu with navigation to:
 * [ ] Mentors
 * [x] Next Level
 * [x] Final CTA
+* [x] Contact Section
 * [x] Footer
 
-### Motion & Microinteractions
+---
+
+## Student Area
+
+* [ ] Student Area architecture
+* [ ] User/student modeling
+* [ ] Student registration
+* [ ] Authentication
+* [ ] Login
+* [ ] JWT
+* [ ] Refresh Token
+* [ ] Endpoint protection
+* [ ] Authenticated student area
+* [ ] Student profile
+* [ ] Student dashboard
+* [ ] Logout
+* [ ] Authorization handling
+* [ ] Frontend/backend integration
+
+---
+
+## Courses
+
+* [ ] Course modeling
+* [ ] Module modeling
+* [ ] Lesson modeling
+* [ ] Course CRUD
+* [ ] Module CRUD
+* [ ] Lesson CRUD
+* [ ] Course listing endpoint
+* [ ] Course details endpoint
+* [ ] Student course enrollment
+* [ ] Progress tracking
+* [ ] Completed lesson tracking
+* [ ] Student course dashboard
+* [ ] Progress persistence
+* [ ] Frontend/backend integration
+
+---
+
+## Backend & Full Stack
+
+### Foundation
+
+* [x] ASP.NET Core Web API creation
+* [x] Backend initial configuration
+* [x] Entity Framework Core
+* [x] SQLite database
+* [x] DbContext configuration
+* [x] Initial migration
+
+### Contact
+
+* [x] Contact message model
+* [x] Create message DTO
+* [x] Request validation
+* [x] Contact API endpoint
+* [x] Message persistence
+* [x] Frontend/backend integration
+* [x] Basic error handling
+
+### Student Area
+
+* [ ] User/student entities
+* [ ] Authentication
+* [ ] Authorization
+* [ ] JWT
+* [ ] Refresh Token
+* [ ] Endpoint protection
+* [ ] Student profile
+* [ ] Student dashboard
+
+### Courses
+
+* [ ] Course entity
+* [ ] Module entity
+* [ ] Lesson entity
+* [ ] Enrollment entity
+* [ ] LessonProgress entity
+* [ ] Entity relationships
+* [ ] Migrations
+* [ ] Course CRUD
+* [ ] Module CRUD
+* [ ] Lesson CRUD
+* [ ] Course enrollment
+* [ ] Student progress
+* [ ] Protected endpoints
+
+### Security & Production
+
+* [ ] Rate limiting
+* [ ] Production CORS
+* [ ] Environment variables
+* [ ] Production connection string
+* [ ] Production API configuration
+* [ ] Global exception handling
+* [ ] Structured logging
+* [ ] Health checks
+* [ ] API documentation
+
+---
+
+## Motion & Microinteractions
 
 * [x] Page entrance animations
 * [x] Scroll reveal animations
@@ -721,23 +1192,13 @@ The Header includes an animated fullscreen menu with navigation to:
 * [ ] Image transitions
 * [ ] Advanced section transitions
 * [ ] Interactive cards
+* [ ] Advanced Hero effects
+* [ ] Student Area microinteractions
+* [ ] Course experience microinteractions
 
-### Backend & Full Stack
+---
 
-* [ ] ASP.NET Core Web API creation
-* [ ] Backend architecture setup
-* [ ] Entity Framework Core
-* [ ] SQLite database
-* [ ] Contact message model
-* [ ] DTO and request validation
-* [ ] Contact API endpoint
-* [ ] Data persistence
-* [ ] Frontend/backend integration
-* [ ] Error handling
-* [ ] Rate limiting
-* [ ] Production API configuration
-
-### Quality
+## Quality
 
 * [ ] Mobile responsiveness review
 * [ ] Tablet responsiveness review
@@ -746,20 +1207,36 @@ The Header includes an animated fullscreen menu with navigation to:
 * [ ] Performance optimization
 * [x] Basic SEO metadata
 * [ ] Open Graph metadata
+* [ ] Sitemap configuration
+* [ ] robots.txt configuration
 * [ ] Lighthouse review
 * [ ] Cross-browser testing
+* [ ] API testing
+* [ ] Integration testing
+* [ ] Security review
+* [ ] Final user experience review
 
-### Deployment
+---
 
-* [x] Production build validated
+## Deployment
+
+* [x] Frontend production build validated
 * [ ] VPS configuration
 * [ ] Nginx configuration
 * [ ] SSL certificate
 * [ ] Subdomain configuration
 * [ ] Backend deployment
 * [ ] Frontend deployment
-* [ ] Production integration
+* [ ] Production database configuration
+* [ ] Environment variable configuration
+* [ ] Production frontend/backend integration
+* [ ] Production API testing
 * [ ] Final QA
+* [ ] Complete contact flow testing
+* [ ] Complete authentication testing
+* [ ] Complete Student Area testing
+* [ ] Complete Course testing
+* [ ] Initial monitoring
 * [ ] Contest submission
 
 > The roadmap represents the current project plan and may evolve as development progresses and the experience is refined.
@@ -784,6 +1261,8 @@ The Header includes an animated fullscreen menu with navigation to:
 * Entity Framework Core
 * SQLite
 * REST API
+* JWT
+* OpenAPI / Swagger
 
 ---
 
@@ -791,29 +1270,59 @@ The Header includes an animated fullscreen menu with navigation to:
 
 The application uses a component-based architecture on the frontend and a separate REST API on the backend, focusing on separation of concerns, maintainability, and scalability.
 
-The planned structure is organized into:
+The current structure is organized as:
 
 ```text
 devclub-concurso/
 │
 ├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
 │
 ├── components/
 │   ├── layout/
+│   │   ├── Header.tsx
+│   │   └── Footer.tsx
+│   │
 │   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── Challenge.tsx
+│   │   ├── NextLevel.tsx
+│   │   ├── AboutDevClub.tsx
+│   │   ├── Journey.tsx
+│   │   ├── FinalCTA.tsx
+│   │   └── Contact.tsx
+│   │
 │   └── ui/
+│       ├── GridBackground.tsx
+│       ├── InteractiveGlow.tsx
+│       └── MagneticButton.tsx
 │
 ├── public/
 │
 ├── docs/
+│   └── creative-direction.md
 │
 └── backend/
     └── DevClub.Api/
         ├── Controllers/
+        │   └── ContactController.cs
+        │
         ├── Data/
+        │   └── AppDbContext.cs
+        │
         ├── DTOs/
+        │   └── CreateContactMessageRequest.cs
+        │
+        ├── Migrations/
+        │
         ├── Models/
-        └── Program.cs
+        │   └── ContactMessage.cs
+        │
+        ├── Program.cs
+        ├── appsettings.json
+        └── DevClub.Api.csproj
 ```
 
 The architecture prioritizes:
@@ -827,8 +1336,11 @@ The architecture prioritizes:
 * Accessibility
 * Frontend/backend separation
 * REST API integration
+* Data persistence
+* Security
+* Incremental evolution
 
-The planned Full Stack architecture is:
+The current Full Stack architecture is:
 
 ```text
                     USER
@@ -841,10 +1353,38 @@ The planned Full Stack architecture is:
               ASP.NET Core API
                      │
                      ▼
-                Entity Framework
+             Entity Framework Core
                      │
                      ▼
                    SQLite
+```
+
+The future architecture, with authentication and the Student Area, will evolve into:
+
+```text
+                         USER
+                           │
+                           ▼
+                  Next.js / React
+                           │
+                           │ HTTP / REST
+                           ▼
+                   ASP.NET Core API
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+             ▼                           ▼
+       Authentication                 Courses
+            JWT                      Enrollment
+             │                       Progress
+             │                           │
+             └─────────────┬─────────────┘
+                           │
+                           ▼
+                 Entity Framework Core
+                           │
+                           ▼
+                        SQLite
 ```
 
 ---
@@ -860,8 +1400,12 @@ The visual experience is designed around:
 * Scroll Reveal Animations
 * Microinteractions
 * Motion Design
+* Interactive Hero
+* Immersive Storytelling
 
 The goal is to create an experience closer to an interactive digital narrative than a traditional institutional landing page.
+
+The next Hero iteration will focus on adding greater depth, movement, and interaction while preserving performance, accessibility, and the project's visual identity.
 
 ---
 
@@ -879,15 +1423,17 @@ The document presents the main visual and narrative concepts used as the foundat
 
 ## Status
 
-🚧 **Frontend completed — Backend in development**
+🚧 **Full Stack in development — Contact integration completed**
 
-The core frontend experience is now structured and includes:
+The project currently includes:
 
 * Immersive hero
 * Design system
 * Interactive header
 * Fullscreen navigation
 * Next Level section
+* Challenge section
+* About DevClub section
 * Learning journey
 * Entrance animations
 * Scroll reveal animations
@@ -895,20 +1441,43 @@ The core frontend experience is now structured and includes:
 * Magnetic interactions
 * Final CTA
 * Footer
+* Contact section
+* ASP.NET Core REST API
+* Entity Framework Core
+* SQLite
+* Initial migration
+* Contact message model
+* Request DTO
+* Contact endpoint
+* Message persistence
+* Frontend/backend integration
+* Success and error feedback
 * Basic SEO metadata
-* Validated production build
+* Validated frontend production build
 
-The production build was successfully executed using:
+The contact flow has been successfully implemented and validated locally:
 
-```bash
-npm run build
+```text
+Next.js
+   │
+   │ POST /api/contact
+   ▼
+ASP.NET Core
+   │
+   ▼
+Entity Framework Core
+   │
+   ▼
+SQLite
 ```
 
-The application was successfully compiled, validated by TypeScript, and generated as a static page by Next.js.
+The next priority is implementing the **Student Area**, including authentication, authorization, and user structure.
 
-The next stage of the project is the implementation of a REST API using **ASP.NET Core**, **Entity Framework Core**, and **SQLite**, followed by frontend/backend integration.
+The following stage will introduce the **Courses** structure, including courses, modules, lessons, enrollment, and student progress tracking.
 
-After the Full Stack integration, the project will proceed with visual refinement, responsiveness, accessibility, performance optimization, QA, and production deployment.
+After the main backend features are completed, the frontend will be refined with an evolved Hero experience, new interactions, and final UX improvements.
+
+Finally, the project will move through quality assurance, security review, and production deployment.
 
 ---
 
@@ -941,16 +1510,37 @@ cd devclub-concurso
 npm install
 ```
 
-### Start the development server
+### Start the frontend
 
 ```bash
 npm run dev
 ```
 
-### Open in your browser
+Open:
 
 ```text
 http://localhost:3000
+```
+
+### Start the backend
+
+In another terminal:
+
+```bash
+cd backend/DevClub.Api
+dotnet run
+```
+
+The API will be available locally at:
+
+```text
+http://localhost:5113
+```
+
+The current contact endpoint is:
+
+```text
+POST http://localhost:5113/api/contact
 ```
 
 ### Run the production build
@@ -958,23 +1548,6 @@ http://localhost:3000
 ```bash
 npm run build
 ```
-
-### Backend
-
-The backend will be located at:
-
-```text
-backend/DevClub.Api/
-```
-
-After the API implementation, the backend can be started with:
-
-```bash
-cd backend/DevClub.Api
-dotnet run
-```
-
-The API will be available locally on a port configured by ASP.NET Core.
 
 ---
 
@@ -1006,6 +1579,12 @@ Internet
                │
                ▼
          ASP.NET Core API
+               │
+               ▼
+        Entity Framework Core
+               │
+               ▼
+             SQLite
 ```
 
 The deployment will use dedicated infrastructure with:
@@ -1040,9 +1619,16 @@ feat: complete core landing page experience
 feat: add ASP.NET Core backend
 feat: add contact message persistence
 feat: integrate contact form with backend
-feat: enhance motion and microinteractions
+feat: add student authentication
+feat: add student area
+feat: add course management
+feat: add course enrollment
+feat: add student course progress
+feat: enhance hero experience
+feat: add advanced motion interactions
 perf: optimize animations and images
 fix: improve responsive layout
+fix: improve API error handling
 docs: update roadmap and project status
 docs: update project documentation
 chore: prepare production deployment
