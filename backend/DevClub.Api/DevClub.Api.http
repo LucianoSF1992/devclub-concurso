@@ -1,0 +1,6 @@
+@DevClub.Api_HostAddress = http://localhost:5113
+
+GET {{DevClub.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
