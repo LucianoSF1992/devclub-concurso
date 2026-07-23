@@ -29,12 +29,12 @@ public class JwtService
         var claims = new[]
         {
             new Claim(
-                JwtRegisteredClaimNames.Sub,
+                ClaimTypes.NameIdentifier,
                 user.Id.ToString()
             ),
 
             new Claim(
-                JwtRegisteredClaimNames.Email,
+                ClaimTypes.Email,
                 user.Email
             ),
 
