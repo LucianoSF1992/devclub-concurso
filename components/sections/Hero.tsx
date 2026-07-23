@@ -42,8 +42,40 @@ export function Hero() {
     className="relative flex min-h-screen items-center overflow-hidden bg-[var(--background)]"
   > <GridBackground />
 
-    ```
+
     < InteractiveGlow />
+
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 overflow-hidden"
+    >
+      <motion.div
+        animate={{
+          x: [0, 120, -80, 0],
+          y: [0, -50, 60, 0],
+          scale: [1, 1.12, 0.95, 1],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent)]/10 blur-[170px]"
+      />
+
+      <motion.div
+        animate={{
+          x: [-80, 60, -80],
+          y: [40, -30, 40],
+        }}
+        transition={{
+          duration: 28,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute right-[-10%] top-[10%] h-[520px] w-[520px] rounded-full bg-cyan-400/10 blur-[160px]"
+      />
+    </div>
 
     <div
       aria-hidden="true"
@@ -57,6 +89,31 @@ export function Hero() {
 
       <div className="absolute bottom-[24%] left-[18%] h-1 w-1 rounded-full bg-white/20" />
     </div>
+
+    {[
+      { left: "12%", top: "18%" },
+      { left: "22%", top: "72%" },
+      { left: "82%", top: "24%" },
+      { left: "72%", top: "66%" },
+      { left: "55%", top: "16%" },
+      { left: "88%", top: "82%" },
+    ].map((particle, index) => (
+      <motion.div
+        key={index}
+        className="pointer-events-none absolute h-2 w-2 rounded-full bg-white/20 blur-sm"
+        style={particle}
+        animate={{
+          y: [0, -18, 0],
+          opacity: [0.2, 1, 0.2],
+          scale: [1, 1.3, 1],
+        }}
+        transition={{
+          duration: 4 + index,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+    ))}
 
     <motion.div
       style={{
@@ -95,11 +152,27 @@ export function Hero() {
           <div className="overflow-hidden">
             <motion.h1
               initial={{ opacity: 0, y: "100%" }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                scale: [1, 1.01, 1],
+              }}
               transition={{
-                duration: 1,
-                delay: 0.15,
-                ease: [0.22, 1, 0.36, 1],
+                opacity: {
+                  duration: 1,
+                  delay: 0.15,
+                  ease: [0.22, 1, 0.36, 1]
+                },
+                y: {
+                  duration: 1,
+                  delay: 0.15,
+                  ease: [0.22, 1, 0.36, 1]
+                },
+                scale: {
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
               }}
               className="max-w-5xl font-[family-name:var(--font-space-grotesk)] text-[clamp(4rem,12vw,11rem)] font-bold uppercase leading-[0.8] tracking-[-0.08em]"
             >
@@ -110,13 +183,27 @@ export function Hero() {
                 initial={{ opacity: 0.5 }}
                 animate={{
                   opacity: [0.8, 1, 0.8],
+                  backgroundPosition: [
+                    "0% 50%",
+                    "100% 50%",
+                    "0% 50%"
+                  ]
                 }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="inline-block text-[var(--accent)]"
+                className="
+                inline-block
+                bg-gradient-to-r
+                from-[var(--accent)]
+                via-cyan-300
+                to-[var(--accent)]
+                bg-[length:220%_220%]
+                bg-clip-text
+                text-transparent
+                "
               >
                 aprenda.
               </motion.span>
@@ -133,9 +220,9 @@ export function Hero() {
             }}
             className="mt-10 max-w-xl text-base leading-relaxed text-[var(--muted)] md:text-lg"
           >
-            Você não está apenas aprendendo a programar.
+            Aprenda com projetos reais,
             <br />
-            Você está construindo o seu próximo nível.
+            desenvolva habilidades práticas e evolua como desenvolvedor.
           </motion.p>
 
           <motion.div
@@ -146,11 +233,24 @@ export function Hero() {
               delay: 0.7,
               ease: "easeOut",
             }}
-            className="mt-10"
+            className="mt-10 flex flex-wrap items-center gap-5"
           >
             <MagneticButton href="#next-level">
               Descobrir
             </MagneticButton>
+
+            <a
+              href="#next-level"
+              className="
+              text-sm
+              font-medium
+              text-white/70
+              transition
+              hover:text-white
+               "
+            >
+              Explorar cursos →
+            </a>
           </motion.div>
         </div>
 
@@ -164,6 +264,17 @@ export function Hero() {
           }}
           className="hidden lg:flex lg:flex-col lg:items-center lg:gap-4"
         >
+          <motion.div
+            className="h-20 w-px bg-white/10"
+            animate={{
+              scaleY: [0.4, 1, 0.4]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity
+            }}
+          />
+
           <span className="text-[10px] uppercase tracking-[0.4em] text-[var(--muted)] [writing-mode:vertical-rl]">
             Scroll to explore
           </span>
@@ -188,7 +299,7 @@ export function Hero() {
       </div>
     </motion.div>
 
-    ```
+
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
