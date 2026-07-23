@@ -54,18 +54,26 @@ public class AppDbContext : DbContext
             .IsRequired();
 
         modelBuilder.Entity<Course>()
+            .Property(course => course.Description)
+            .IsRequired();
+
+        modelBuilder.Entity<Course>()
             .Property(course => course.Slug)
             .IsRequired();
 
+        modelBuilder.Entity<Course>()
+            .Property(course => course.Level)
+            .IsRequired();
+
         modelBuilder.Entity<CourseModule>()
-            .HasOne(courseModule => courseModule.Course)
+            .HasOne(module => module.Course)
             .WithMany(course => course.Modules)
-            .HasForeignKey(courseModule => courseModule.CourseId)
+            .HasForeignKey(module => module.CourseId)
             .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<Lesson>()
             .HasOne(lesson => lesson.CourseModule)
-            .WithMany(courseModule => courseModule.Lessons)
+            .WithMany(module => module.Lessons)
             .HasForeignKey(lesson => lesson.CourseModuleId)
             .OnDelete(DeleteBehavior.Cascade);
 

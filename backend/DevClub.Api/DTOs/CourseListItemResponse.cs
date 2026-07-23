@@ -1,6 +1,6 @@
-namespace DevClub.Api.Models;
+namespace DevClub.Api.DTOs;
 
-public class Course
+public class CourseListItemResponse
 {
     public int Id { get; set; }
 
@@ -15,14 +15,4 @@ public class Course
     public string Level { get; set; } = string.Empty;
 
     public int DurationInHours { get; set; }
-
-    public bool IsPublished { get; set; }
-
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
-    public ICollection<CourseModule> Modules { get; set; } =
-        new List<CourseModule>();
-
-    public ICollection<Enrollment> Enrollments { get; set; } =
-        new List<Enrollment>();
 }
