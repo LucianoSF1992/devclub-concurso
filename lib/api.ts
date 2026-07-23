@@ -25,6 +25,7 @@ async function request<T>(
     let errorMessage =
       "Ocorreu um erro ao realizar a requisição.";
 
+
     try {
       const error =
         (await response.json()) as ApiError;
@@ -39,6 +40,7 @@ async function request<T>(
 
     throw new Error(errorMessage);
 
+
   }
 
   if (response.status === 204) {
@@ -47,10 +49,6 @@ async function request<T>(
 
   return response.json() as Promise<T>;
 }
-
-// ==========================================
-// AUTH
-// ==========================================
 
 export interface LoginRequest {
   email: string;
@@ -70,10 +68,6 @@ export interface AuthResponse {
   token: string;
 }
 
-// ==========================================
-// STUDENT
-// ==========================================
-
 export interface StudentProfileResponse {
   id: number;
   name: string;
@@ -81,25 +75,11 @@ export interface StudentProfileResponse {
   createdAt: string;
 }
 
-// ==========================================
-// COURSES
-// ==========================================
-
-export interface CourseListItemResponse {
-  id: number;
-  title: string;
-  description: string;
-  slug: string;
-  imageUrl: string | null;
-  level: string;
-  durationInHours: number;
-}
-
 export interface LessonResponse {
   id: number;
   title: string;
   description: string;
-  videoUrl: string | null;
+  videoUrl?: string | null;
   durationInMinutes: number;
   order: number;
 }
@@ -116,53 +96,60 @@ export interface CourseDetailsResponse {
   title: string;
   description: string;
   slug: string;
-  imageUrl: string | null;
+  imageUrl?: string | null;
   level: string;
   durationInHours: number;
   modules: CourseModuleResponse[];
 }
 
-// ==========================================
-// ENROLLMENTS
-// ==========================================
+export interface EnrolledCourseResponse
+  extends CourseDetailsResponse {
+  enrolledAt: string;
+}
 
-export interface EnrollmentResponse {
+export type MyCourseResponse =
+  EnrolledCourseResponse;
+
+export interface CourseListItemResponse {
   id: number;
+  title: string;
+  description: string;
+  slug: string;
+  imageUrl?: string | null;
+  level: string;
+  durationInHours: number;
+}
+
+/* ========================================
+LESSON PROGRESS
+======================================== */
+
+export interface LessonProgressItem {
+  id: number;
+  title: string;
+  moduleId: number;
+  moduleTitle: string;
+  isCompleted: boolean;
+}
+
+export interface CourseProgressResponse {
   courseId: number;
-  enrolledAt: string;
+  totalLessons: number;
+  completedLessons: number;
+  progressPercentage: number;
+  lessons: LessonProgressItem[];
 }
 
-export interface MyCourseResponse {
-  id: number;
-  title: string;
-  description: string;
-  slug: string;
-  imageUrl: string | null;
-  level: string;
-  durationInHours: number;
-  enrolledAt: string;
+export interface LessonCompletionResponse {
+  lessonId: number;
+  isCompleted: boolean;
+  completedAt: string | null;
 }
-
-export interface MyCourseDetailsResponse {
-  id: number;
-  title: string;
-  description: string;
-  slug: string;
-  imageUrl: string | null;
-  level: string;
-  durationInHours: number;
-  enrolledAt: string;
-  modules: CourseModuleResponse[];
-}
-
-// ==========================================
-// API
-// ==========================================
 
 export const api = {
-  // ----------------------------------------
-  // AUTH
-  // ----------------------------------------
+  /* ========================================
+  AUTH
+  ======================================== */
 
   login(
     data: LoginRequest,
@@ -188,9 +175,9 @@ export const api = {
     );
   },
 
-  // ----------------------------------------
-  // STUDENT
-  // ----------------------------------------
+  /* ========================================
+  STUDENT
+  ======================================== */
 
   getStudentProfile(
     token: string,
@@ -206,14 +193,11 @@ export const api = {
     );
   },
 
-  // ----------------------------------------
-  // COURSES
-  // ----------------------------------------
+  /* ========================================
+  COURSES
+  ======================================== */
 
-  getCourses(): Promise<
-    CourseListItemResponse[]
-
-  > {
+  getCourses(): Promise<CourseListItemResponse[]> {
     return request<CourseListItemResponse[]>(
       "/api/Courses",
       {
@@ -226,22 +210,26 @@ export const api = {
     slug: string,
   ): Promise<CourseDetailsResponse> {
     return request<CourseDetailsResponse>(
-      `/api/Courses/${encodeURIComponent(slug)}`,
+      `/api/Courses/${slug}`,
       {
         method: "GET",
       },
     );
   },
 
-  // ----------------------------------------
-  // ENROLLMENTS
-  // ----------------------------------------
+  /* ========================================
+  ENROLLMENTS
+  ======================================== */
 
   enroll(
-    token: string,
     courseId: number,
-  ): Promise<EnrollmentResponse> {
-    return request<EnrollmentResponse>(
+    token: string,
+  ): Promise<{
+    id: number;
+    courseId: number;
+    enrolledAt: string;
+  }> {
+    return request(
       `/api/Enrollment/${courseId}`,
       {
         method: "POST",
@@ -254,8 +242,8 @@ export const api = {
 
   getMyCourses(
     token: string,
-  ): Promise<MyCourseResponse[]> {
-    return request<MyCourseResponse[]>(
+  ): Promise<EnrolledCourseResponse[]> {
+    return request<EnrolledCourseResponse[]>(
       "/api/Enrollment/my-courses",
       {
         method: "GET",
@@ -267,13 +255,62 @@ export const api = {
   },
 
   getMyCourse(
-    token: string,
     courseId: number,
-  ): Promise<MyCourseDetailsResponse> {
-    return request<MyCourseDetailsResponse>(
+    token: string,
+  ): Promise<EnrolledCourseResponse> {
+    return request<EnrolledCourseResponse>(
       `/api/Enrollment/my-courses/${courseId}`,
       {
         method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+  },
+
+  /* ========================================
+  LESSON PROGRESS
+  ======================================== */
+
+  getCourseProgress(
+    courseId: number,
+    token: string,
+  ): Promise<CourseProgressResponse> {
+    return request<CourseProgressResponse>(
+      `/api/LessonProgress/course/${courseId}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+  },
+
+  completeLesson(
+    lessonId: number,
+    token: string,
+  ): Promise<LessonCompletionResponse> {
+    return request<LessonCompletionResponse>(
+      `/api/LessonProgress/lesson/${lessonId}/complete`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+  },
+
+  uncompleteLesson(
+    lessonId: number,
+    token: string,
+  ): Promise<LessonCompletionResponse> {
+    return request<LessonCompletionResponse>(
+      `/api/LessonProgress/lesson/${lessonId}/complete`,
+      {
+        method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
         },

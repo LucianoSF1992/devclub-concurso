@@ -42,6 +42,9 @@ export default function StudentAreaPage() {
   const [error, setError] =
     useState("");
 
+  const [enrollingCourseId, setEnrollingCourseId] =
+    useState<number | null>(null);
+
   useEffect(() => {
     async function loadStudentArea() {
       const token = getToken();
@@ -111,6 +114,60 @@ export default function StudentAreaPage() {
   function handleLogout() {
     logout();
     router.replace("/login");
+  }
+
+  async function handleEnroll(courseId: number) {
+    const token = getToken();
+
+    if (!token) {
+      router.replace("/login");
+      return;
+    }
+
+    try {
+      setEnrollingCourseId(courseId);
+
+      await api.enroll(
+        courseId,
+        token,
+      );
+
+      const [
+        myCoursesResponse,
+        coursesResponse,
+      ] = await Promise.all([
+        api.getMyCourses(token),
+        api.getCourses(),
+      ]);
+
+      setMyCourses(myCoursesResponse);
+
+      const enrolledCourseIds = new Set(
+        myCoursesResponse.map(
+          (course) => course.id,
+        ),
+      );
+
+      setAvailableCourses(
+        coursesResponse.filter(
+          (course) =>
+            !enrolledCourseIds.has(
+              course.id,
+            ),
+        ),
+      );
+
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError(
+          "Não foi possível realizar a matrícula.",
+        );
+      }
+    } finally {
+      setEnrollingCourseId(null);
+    }
   }
 
   if (isLoading) {
@@ -464,18 +521,27 @@ export default function StudentAreaPage() {
                       </span>
                     </div>
 
-                    <Link
-                      href={`/aluno/cursos/${course.slug}`}
-                      className="group/link mt-6 flex items-center justify-between border-t border-white/10 pt-5 text-xs font-semibold uppercase tracking-[0.15em] text-[var(--accent)]"
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleEnroll(course.id)
+                      }
+                      disabled={
+                        enrollingCourseId === course.id
+                      }
+                      className="group/link mt-6 flex w-full items-center justify-between border-t border-white/10 pt-5 text-xs font-semibold uppercase tracking-[0.15em] text-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50"
                     >
-                      Ver curso
+                      {enrollingCourseId === course.id
+                        ? "Matriculando..."
+                        : "Matricular-se"}
 
                       <ArrowRight
                         size={16}
                         strokeWidth={1.5}
                         className="transition-transform duration-300 group-hover/link:translate-x-1"
                       />
-                    </Link>
+                    </button>
+
                   </div>
                 </motion.article>
               ),
