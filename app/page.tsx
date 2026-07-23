@@ -6,6 +6,7 @@ import { NextLevel } from "@/components/sections/NextLevel";
 import { AboutDevClub } from "@/components/sections/AboutDevClub";
 import { Journey } from "@/components/sections/Journey";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (<main> <Header />
@@ -21,6 +22,8 @@ export default function Home() {
     <Journey />
 
     <FinalCTA />
+
+    <Contact />
 
     <Footer />
   </main>
